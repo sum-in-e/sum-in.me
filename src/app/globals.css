@@ -14,19 +14,156 @@
   * {
     -webkit-tap-highlight-color: transparent;
   }
-}
 
-.animate-in {
-  animation: animateIn 0.3s ease 0.15s both;
-}
-
-@keyframes animateIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
+  /* content style */
+  .content .tiptap {
+    @apply outline-none;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .content p:empty {
+    @apply py-3;
+  }
+
+  .content h1 {
+    @apply text-4xl font-bold my-5;
+  }
+
+  .content h2 {
+    @apply text-3xl font-semibold my-4;
+  }
+
+  .content h3 {
+    @apply text-2xl font-medium my-2;
+  }
+
+  .content ul {
+    @apply list-disc pl-4;
+  }
+
+  .content ol {
+    @apply list-decimal pl-4;
+  }
+
+  .content ul ul {
+    /* 2 depth 이상은 circle list style 적용 */
+    @apply list-[circle];
+  }
+
+  .content li {
+    @apply ml-2;
+  }
+
+  .content blockquote {
+    @apply px-5 py-1 my-2 text-base border-l-4 border-zinc-300;
+  }
+
+  .content p.is-editor-empty:first-child::before {
+    color: #adb5bd;
+    content: attr(data-placeholder);
+    float: left;
+    height: 0;
+    pointer-events: none;
+  }
+
+  .content hr {
+    @apply my-5;
+  }
+
+  /* Link */
+  .content a {
+    @apply cursor-pointer underline text-blue-500;
+  }
+  /* HighLight */
+  .content mark {
+    @apply rounded-sm p-[1px];
+  }
+
+  /* Code */
+  .content code {
+    @apply bg-zinc-200 text-sm p-1 rounded-sm;
+  }
+
+  /* Code Block */
+  .content pre {
+    @apply bg-zinc-800 rounded-lg text-white py-3 px-4 my-2;
+    font-family: 'JetBrainsMono', monospace;
+  }
+
+  .content pre code {
+    @apply bg-transparent text-inherit text-sm p-0;
+  }
+
+  .content .hljs-comment,
+  .content .hljs-quote {
+    @apply text-zinc-500;
+  }
+
+  .content .hljs-variable,
+  .content .hljs-template-variable,
+  .content .hljs-attribute,
+  .content .hljs-tag,
+  .content .hljs-name,
+  .content .hljs-regexp,
+  .content .hljs-link,
+  .content .hljs-name,
+  .content .hljs-selector-id,
+  .content .hljs-selector-class {
+    @apply text-red-400;
+  }
+
+  .content .hljs-number,
+  .content .hljs-meta,
+  .content .hljs-built_in,
+  .content .hljs-builtin-name,
+  .content .hljs-literal,
+  .content .hljs-type,
+  .content .hljs-params {
+    @apply text-orange-300;
+  }
+
+  .content .hljs-string,
+  .content .hljs-symbol,
+  .content .hljs-bullet {
+    @apply text-green-400;
+  }
+
+  .content .hljs-title,
+  .content .hljs-section {
+    @apply text-yellow-200;
+  }
+
+  .content .hljs-keyword,
+  .content .hljs-selector-tag {
+    @apply text-blue-400;
+  }
+
+  .content .hljs-emphasis {
+    @apply italic;
+  }
+
+  .content .hljs-strong {
+    @apply font-bold;
+  }
+}
+
+@layer components {
+  .color-duration {
+    @apply transition-colors duration-300;
+  }
+
+  .skeleton {
+    @apply animate-pulse bg-gray-300;
+  }
+
+  .reset-input {
+    @apply w-full placeholder-gray-400 outline-none;
+  }
+
+  .reset-textarea {
+    @apply w-full resize-none placeholder-gray-400 outline-none;
+  }
+
+  .reset-button {
+    @apply w-full select-none disabled:cursor-not-allowed disabled:bg-gray-400 disabled:hover:bg-gray-400;
   }
 }
