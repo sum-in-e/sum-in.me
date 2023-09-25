@@ -46,7 +46,7 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      url: 'https://linkloud.xyz', // TODO: 배포된 url로 수정
+      url: 'https://sum-in-me.vercel.app/',
       type: 'website',
       images: [
         {
