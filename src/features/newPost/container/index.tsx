@@ -91,7 +91,7 @@ const NewPost = () => {
 
   return (
     <>
-      <div className="max-w-screen-sm w-full py-10 flex flex-col gap-2">
+      <div className="w-full py-10 flex flex-col gap-2">
         <TitleInput />
         <EditorContent editor={editor} className="content outline-none" />
         <div className="character-count flex justify-end text-xs">
