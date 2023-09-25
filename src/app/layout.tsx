@@ -45,7 +45,7 @@ export const metadata = {
   title,
   description,
   keywords: 'sumDev, sum-in.me',
-  metadataBase: new URL('https://linkloud.xyz'), // TODO: 수정
+  metadataBase: new URL('https://sum-in-me.vercel.app/'),
   alternates: {
     canonical: '/',
   },
@@ -58,7 +58,7 @@ export const metadata = {
   openGraph: {
     title,
     description,
-    url: 'https://linkloud.xyz', // TODO: 수정
+    url: 'https://sum-in-me.vercel.app/',
     type: 'website',
     images: [
       {
