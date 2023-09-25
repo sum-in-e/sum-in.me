@@ -102,29 +102,23 @@ export interface Database {
       [_ in never]: never;
     };
     Functions: {
-      insert_post_with_tag:
-        | {
-            Args: {
-              post_title: string;
-              post_description: string;
-              post_content: string;
-              post_is_public: boolean;
-              post_type: Database['public']['Enums']['post_type'];
-              tag_id: number;
-            };
-            Returns: number;
-          }
-        | {
-            Args: {
-              post_title: string;
-              post_description: string;
-              post_content: string;
-              post_is_public: boolean;
-              post_type: Database['public']['Enums']['post_type'];
-              tag_ids: number[];
-            };
-            Returns: number;
-          };
+      increment_views: {
+        Args: {
+          post_id: number;
+        };
+        Returns: undefined;
+      };
+      insert_post_with_tag: {
+        Args: {
+          post_title: string;
+          post_description: string;
+          post_content: string;
+          post_is_public: boolean;
+          post_type: Database['public']['Enums']['post_type'];
+          tag_ids: number[];
+        };
+        Returns: number;
+      };
     };
     Enums: {
       post_type: 'blog' | 'note';
