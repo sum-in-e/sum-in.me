@@ -49,7 +49,7 @@ const Header = ({ user }: Props) => {
             )}
             <button
               onClick={() => setMode()}
-              className={`rounded-md p-2 border-2 border-zinc-300`}
+              className={`p-2 md:hover:bg-zinc-100 dark:md:hover:bg-opacity-10 rounded-lg`}
             >
               <CgDarkMode size={20} />
             </button>
