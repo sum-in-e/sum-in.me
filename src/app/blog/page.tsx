@@ -14,7 +14,8 @@ export default async function BlogPage() {
     .from('post')
     .select('*')
     .eq('type', 'blog')
-    .eq('is_public', true);
+    .eq('is_public', true)
+    .order('created_at', { ascending: false });
 
   // .range(0, 10); // TODO: 페이지네이션
   // TODO: 미발행글 리스트로 따로 만들기(나만 볼 수 있도록 권한 설정)

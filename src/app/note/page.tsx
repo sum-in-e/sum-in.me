@@ -14,7 +14,8 @@ export default async function NotePage() {
     .from('post')
     .select('*')
     .eq('type', 'note')
-    .eq('is_public', true);
+    .eq('is_public', true)
+    .order('created_at', { ascending: false });
 
   // TODO: 페이지네이션
   // TODO: 미발행글 리스트로 따로 만들기(나만 볼 수 있도록 권한 설정)

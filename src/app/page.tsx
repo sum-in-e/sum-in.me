@@ -15,6 +15,7 @@ export default async function HomePage() {
     .select('*')
     .eq('type', 'blog')
     .eq('is_public', true)
+    .order('created_at', { ascending: false })
     .range(0, 2);
 
   let { data: notes, error: notesError } = await supabase
@@ -22,6 +23,7 @@ export default async function HomePage() {
     .select('*')
     .eq('type', 'note')
     .eq('is_public', true)
+    .order('created_at', { ascending: false })
     .range(0, 2);
 
   if (blogPostsError || notesError) {
