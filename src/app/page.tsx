@@ -1,7 +1,7 @@
 import { Database } from '@/database.types';
 import PostItem from '@/src/features/postList/components/PostItem';
 import ReadMoreButton from '@/src/features/postList/components/ReadMoreButton';
-import ProductList from '@/src/features/products/containers/ProductList';
+import ProjectList from '@/src/features/projects/containers/ProjectList';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 
@@ -78,8 +78,8 @@ export default async function HomePage() {
         </div>
       </section>
       <section className="w-full">
-        <p className="text-3xl font-bold mb-10 dark:text-white">Products</p>
-        <ProductList />
+        <p className="text-3xl font-bold mb-10 dark:text-white">Projects</p>
+        <ProjectList />
       </section>
     </div>
   );

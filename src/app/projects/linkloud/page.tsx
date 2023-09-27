@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { BsArrowRightShort } from 'react-icons/bs';
-import cover from '/public/images/products/linkloud/linkloud_main.webp';
+import cover from '/public/images/projects/linkloud/linkloud_main.webp';
 
-export default async function ProductLinkloudPage() {
+export default async function ProjectLinkloudPage() {
   return (
     <section>
       <h2 className="text-4xl font-bold dark:text-white">Linkloud</h2>
@@ -19,7 +19,7 @@ export default async function ProductLinkloudPage() {
           className="rounded-md group flex items-center"
         >
           <span className="text-zinc-600 md:group-hover:text-black dark:text-zinc-300 dark:md:group-hover:text-zinc-200">
-            View Product
+            View Project
           </span>
           <BsArrowRightShort
             size={25}
@@ -98,3 +98,38 @@ const techStacks = [
   { title: 'Server', stacks: ['NestJS', 'MySQL'] },
   { title: 'Deployment', stacks: ['Vercel', 'Cloudtype'] },
 ];
+
+const title = 'Project | Linkloud';
+const description = '나중에 볼 링크들을 저장하고 관리하는 서비스';
+const coverUrl =
+  'https://res.cloudinary.com/dqcgvbbv7/image/upload/f_auto,q_auto/v1/linkloud/emtygeehcgigfn9wlhw3';
+
+export const metadata = {
+  title,
+  description,
+  keywords: 'sumDev, sum-in.me, linkloud',
+  metadataBase: new URL('https://sum-in-me.vercel.app/projects/linkloud'),
+  openGraph: {
+    title,
+    description,
+    url: 'https://sum-in-me.vercel.app/projects/linkloud',
+    type: 'website',
+    images: [
+      {
+        url: coverUrl,
+        alt: 'Linkloud Cover Image',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title,
+    description,
+    images: [
+      {
+        url: coverUrl,
+        alt: 'Linkloud Cover Image',
+      },
+    ],
+  },
+};

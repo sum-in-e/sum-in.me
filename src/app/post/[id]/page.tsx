@@ -43,10 +43,11 @@ export async function generateMetadata({
   return {
     title,
     description,
+    metadataBase: new URL(`https://sum-in-me.vercel.app/post/${id}`),
     openGraph: {
       title,
       description,
-      url: 'https://sum-in-me.vercel.app/',
+      url: `https://sum-in-me.vercel.app/post/${id}`,
       type: 'website',
       images: [
         {

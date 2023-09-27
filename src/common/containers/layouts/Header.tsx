@@ -30,9 +30,9 @@ const Header = ({ user }: Props) => {
             <Menu path="/blog" name="Blog" isActive={pathname === '/blog'} />
             <Menu path="/note" name="Note" isActive={pathname === '/note'} />
             <Menu
-              path="/products"
-              name="Products"
-              isActive={pathname.includes('/products')}
+              path="/projects"
+              name="Projects"
+              isActive={pathname.includes('/projects')}
             />
           </div>
           <div className="flex gap-3">

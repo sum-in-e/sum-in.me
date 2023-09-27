@@ -1,8 +1,6 @@
 import { cookies } from 'next/headers';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { Database } from '@/database.types';
-import dayjs from 'dayjs';
-import { Metadata } from 'next';
 import PostItem from '@/src/features/postList/components/PostItem';
 
 export const dynamic = 'force-dynamic';

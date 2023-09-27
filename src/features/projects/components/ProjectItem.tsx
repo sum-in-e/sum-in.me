@@ -14,7 +14,7 @@ interface Props {
 import { useRouter } from 'next/navigation';
 import { MouseEvent } from 'react';
 
-const ProductItem = ({ id, name, description, duration, url, path }: Props) => {
+const ProjectItem = ({ id, name, description, duration, url, path }: Props) => {
   const router = useRouter();
 
   const handleOpenTheSite = () => {
@@ -35,7 +35,7 @@ const ProductItem = ({ id, name, description, duration, url, path }: Props) => {
       <div className="flex gap-5 relative z-10">
         <div className="border bg-white rounded-lg w-fit h-fit p-1">
           <img
-            src="/images/products/linkloud/logo.png"
+            src="/images/projects/linkloud/logo.png"
             alt="Linkloud logo"
             height={50}
             width={50}
@@ -69,4 +69,4 @@ const ProductItem = ({ id, name, description, duration, url, path }: Props) => {
   );
 };
 
-export default ProductItem;
+export default ProjectItem;

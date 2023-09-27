@@ -1,25 +1,25 @@
-import ProductItem from '@/src/features/products/components/ProductItem';
+import ProjectItem from '@/src/features/projects/components/ProjectItem';
 
-const ProductList = () => {
+const ProjectList = () => {
   return (
     <ul>
-      {products.map((product) => (
-        <ProductItem key={product.id} {...product} />
+      {projects.map((project) => (
+        <ProjectItem key={project.id} {...project} />
       ))}
     </ul>
   );
 };
 
-export default ProductList;
+export default ProjectList;
 
-const products = [
+const projects = [
   {
     id: 0,
     name: 'Linkloud',
     description:
       '나중에 볼 링크를 간편하게 저장하고 관리할 수 있도록 도와주는 서비스',
     url: 'https://linkloud.xyz',
-    path: '/products/linkloud',
+    path: '/projects/linkloud',
     duration: '2023 - present',
   },
 ];
