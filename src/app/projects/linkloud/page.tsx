@@ -108,11 +108,11 @@ export const metadata = {
   title,
   description,
   keywords: 'sumDev, sum-in.me, linkloud',
-  metadataBase: new URL('https://sum-in-me.vercel.app/projects/linkloud'),
+  metadataBase: new URL('https://dev.sum-in.me/projects/linkloud'),
   openGraph: {
     title,
     description,
-    url: 'https://sum-in-me.vercel.app/projects/linkloud',
+    url: 'https://dev.sum-in.me/projects/linkloud',
     type: 'website',
     images: [
       {

@@ -49,7 +49,7 @@ export const metadata = {
   title,
   description,
   keywords: 'sumDev, sum-in.me',
-  metadataBase: new URL('https://sum-in-me.vercel.app/'),
+  metadataBase: new URL('https://dev.sum-in.me/'),
   alternates: {
     canonical: '/',
   },
@@ -62,7 +62,7 @@ export const metadata = {
   openGraph: {
     title,
     description,
-    url: 'https://sum-in-me.vercel.app/',
+    url: 'https://dev.sum-in.me/',
     type: 'website',
     images: [
       {
