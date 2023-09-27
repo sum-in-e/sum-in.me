@@ -33,10 +33,12 @@ export default async function HomePage() {
   return (
     <div className="w-full flex flex-col items-center gap-16">
       <section className="w-full">
-        <p className="text-3xl font-bold mb-10">Writing</p>
+        <p className="text-3xl font-bold mb-10 dark:text-white">Writing</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           <div className="flex-grow">
-            <p className="text-xl font-semibold text-zinc-700">Recent Posts</p>
+            <p className="text-xl font-semibold text-zinc-700 dark:text-white">
+              Recent Posts
+            </p>
             <div className="flex justify-end mb-7">
               <ReadMoreButton path="/blog" />
             </div>
@@ -53,7 +55,9 @@ export default async function HomePage() {
             </ul>
           </div>
           <div className="flex-grow">
-            <p className="text-xl font-semibold text-zinc-700">Recent Notes</p>
+            <p className="text-xl font-semibold text-zinc-700 dark:text-white">
+              Recent Notes
+            </p>
             <div className="flex justify-end mb-7">
               <ReadMoreButton path="/note" />
             </div>
@@ -72,7 +76,7 @@ export default async function HomePage() {
         </div>
       </section>
       <section className="w-full">
-        <p className="text-3xl font-bold mb-10">Products</p>
+        <p className="text-3xl font-bold mb-10 dark:text-white">Products</p>
         <ProductList />
       </section>
     </div>

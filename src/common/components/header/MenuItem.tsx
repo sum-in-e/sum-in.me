@@ -14,7 +14,9 @@ const Menu = ({
   return (
     <Link
       href={path}
-      className={`md:hover:underline ${isActive ? '' : 'text-zinc-400'}`}
+      className={`md:hover:underline ${
+        isActive ? 'dark:text-white' : 'text-zinc-400 '
+      }`}
     >
       {name}
     </Link>

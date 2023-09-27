@@ -19,12 +19,12 @@ const ReadMoreButton = ({ path }: Props) => {
       onClick={handleClick}
       className="flex justify-center group items-center"
     >
-      <span className="text-zinc-400 text-xs group-hover:text-black">
+      <span className="text-zinc-400 text-xs group-hover:text-black dark:group-hover:text-zinc-300">
         Read More
       </span>
       <BsArrowRightShort
         size={15}
-        className="fill-zinc-400 group-hover:fill-black"
+        className="fill-zinc-400 group-hover:fill-black dark:group-hover:fill-zinc-300"
       />
     </button>
   );

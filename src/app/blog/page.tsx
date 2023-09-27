@@ -21,7 +21,7 @@ export default async function BlogPage() {
 
   return (
     <section className="w-full">
-      <h2 className="text-4xl mb-10 font-bold">Blog</h2>
+      <h2 className="text-4xl mb-10 font-bold dark:text-white">Blog</h2>
       <ul className="flex flex-col gap-10">
         {list?.map((item) => (
           <PostItem

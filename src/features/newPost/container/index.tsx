@@ -94,7 +94,7 @@ const NewPost = () => {
       <div className="w-full py-10 flex flex-col gap-2">
         <TitleInput />
         <EditorContent editor={editor} className="content outline-none" />
-        <div className="character-count flex justify-end text-xs">
+        <div className="character-count flex justify-end text-xs dark:text-zinc-100">
           {editor.storage.characterCount.characters()} characters
         </div>
       </div>

@@ -9,20 +9,20 @@ export default function LoginPage() {
         action="/auth/login"
         method="post"
       >
-        <label className="text-md" htmlFor="email">
+        <label className="text-md dark:text-white" htmlFor="email">
           Email
         </label>
         <input
-          className="rounded-md px-4 py-2 bg-inherit border mb-6"
+          className="rounded-md dark:text-white px-4 py-2 bg-inherit border mb-6"
           name="email"
           placeholder="you@example.com"
           required
         />
-        <label className="text-md" htmlFor="password">
+        <label className="text-md dark:text-white" htmlFor="password">
           Password
         </label>
         <input
-          className="rounded-md px-4 py-2 bg-inherit border mb-6"
+          className="rounded-md dark:text-white px-4 py-2 bg-inherit border mb-6"
           type="password"
           name="password"
           placeholder="••••••••"

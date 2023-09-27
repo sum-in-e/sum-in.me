@@ -8,13 +8,15 @@ const Footer = () => {
           <Link
             href="https://github.com/sum-in-e"
             target="_blank"
-            className="cursor-pointer  md:hover:underline"
+            className="cursor-pointer dark:text-zinc-100 md:hover:underline"
           >
             GitHub
           </Link>
-          <p>✉️ suminkim.me@gmail.com</p>
+          <p className="dark:text-zinc-100">✉️ suminkim.me@gmail.com</p>
         </div>
-        <p className="text-md">© {new Date().getFullYear()} sum-in.me</p>
+        <p className="dark:text-zinc-100">
+          © {new Date().getFullYear()} sum-in.me
+        </p>
       </div>
     </footer>
   );

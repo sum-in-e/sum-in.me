@@ -12,7 +12,7 @@ const TitleInput = () => {
 
   return (
     <input
-      className="p-2 text-3xl font-bold bg-inherit border-b reset-input"
+      className="p-2 text-3xl font-bold bg-inherit border-b reset-input dark:text-white"
       placeholder="제목을 입력하세요."
       value={title}
       onChange={handleChange}

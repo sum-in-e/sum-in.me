@@ -24,24 +24,28 @@
     @apply py-3;
   }
 
+  .content p {
+    @apply dark:text-zinc-100;
+  }
+
   .content h1 {
-    @apply text-4xl font-bold my-5;
+    @apply text-4xl font-bold my-5 dark:text-zinc-100;
   }
 
   .content h2 {
-    @apply text-3xl font-semibold my-4;
+    @apply text-3xl font-semibold my-4 dark:text-zinc-100;
   }
 
   .content h3 {
-    @apply text-2xl font-medium my-2;
+    @apply text-2xl font-medium my-2 dark:text-zinc-100;
   }
 
   .content ul {
-    @apply list-disc pl-4;
+    @apply list-disc pl-4 dark:text-zinc-100;
   }
 
   .content ol {
-    @apply list-decimal pl-4;
+    @apply list-decimal pl-4 dark:text-zinc-100;
   }
 
   .content ul ul {
@@ -80,7 +84,7 @@
 
   /* Code */
   .content code {
-    @apply bg-zinc-200 text-sm p-1 rounded-sm;
+    @apply bg-zinc-200 text-sm p-1 rounded-md dark:bg-zinc-700;
   }
 
   /* Code Block */

@@ -1,12 +1,14 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { BsArrowRightShort } from 'react-icons/bs';
+import cover from '/public/images/products/linkloud/linkloud_main.webp';
 
 export default async function ProductLinkloudPage() {
   return (
     <section>
-      <h2 className="text-4xl font-bold">Linkloud</h2>
-      <img
-        src="/images/products/linkloud/linkloud_main.webp"
+      <h2 className="text-4xl font-bold dark:text-white">Linkloud</h2>
+      <Image
+        src={cover}
         alt="Linkloud Cover Image"
         className="w-full h-auto object-contain rounded-lg overflow-hidden shadow-lg my-10"
       />
@@ -16,19 +18,19 @@ export default async function ProductLinkloudPage() {
           target="_blank"
           className="rounded-md group flex items-center"
         >
-          <span className="text-zinc-600 group-hover:text-black">
+          <span className="text-zinc-600 md:group-hover:text-black dark:text-zinc-300 dark:md:group-hover:text-zinc-200">
             View Product
           </span>
           <BsArrowRightShort
             size={25}
-            className="fill-zinc-600 group-hover:fill-black"
+            className="fill-zinc-600 md:group-hover:fill-black dark:fill-zinc-300 dark:md:group-hover:fill-zinc-200"
           />
         </Link>
       </div>
       <article className="mt-10">
-        <h4 className="text-xl font-semibold">소개</h4>
-        <hr className="mt-2 mb-5" />
-        <div className="text-zinc-700 flex flex-col gap-3">
+        <h4 className="text-xl font-semibold dark:text-white">소개</h4>
+        <hr className="mt-2 mb-5 dark:border-zinc-700" />
+        <div className="text-zinc-700 flex flex-col gap-3 dark:text-zinc-300">
           <p>Linkloud는 나중에 볼 링크들을 저장하고 관리하는 서비스입니다.</p>
           <p>
             출·퇴근길에 발견한 관심 있는 글을 나중에 확인하기 위해 임시로
@@ -60,15 +62,17 @@ export default async function ProductLinkloudPage() {
         </div>
       </article>
       <article className="mt-16">
-        <h4 className="text-xl font-semibold">기술 스택</h4>
-        <hr className="mt-2 mb-5" />
+        <h4 className="text-xl font-semibold dark:text-white">기술 스택</h4>
+        <hr className="mt-2 mb-5 dark:border-zinc-700" />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {techStacks.map((item, index) => (
             <div key={index}>
-              <h5 className="text-lg font-semibold mb-3">{item.title}</h5>
+              <h5 className="text-lg font-semibold mb-3 dark:text-zinc-100">
+                {item.title}
+              </h5>
               <ul className="flex flex-col gap-1">
                 {item.stacks.map((stack, index) => (
-                  <li className="text-zinc-700">{`· ${stack}`}</li>
+                  <li className="text-zinc-700 dark:text-zinc-300">{`· ${stack}`}</li>
                 ))}
               </ul>
             </div>

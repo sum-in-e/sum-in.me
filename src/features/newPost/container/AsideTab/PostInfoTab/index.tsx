@@ -102,7 +102,7 @@ const PostInfoTab = ({ editor }: Props) => {
         <p className="text-xs text-zinc-400">Description</p>
         <input
           className="bg-inherit border-b border-zinc-700 reset-input text-black"
-          placeholder="Description for meta tag"
+          placeholder="Description"
           value={description}
           onChange={handleChangeDescription}
         />

@@ -14,7 +14,7 @@ const AsideTab = ({ editor }: Props) => {
   const [activeTab, setActiveTab] = useState('info');
 
   return (
-    <div className="fixed rounded-lg top-5 right-5 w-[280px] min-h-[600px] shadow-xl bg-gray-200 text-white z-10">
+    <div className="fixed rounded-lg top-25 right-5 w-[280px] min-h-[600px] shadow-xl bg-gray-200 text-white z-10">
       <div className="flex">
         {/* Tabs */}
         <Tab

@@ -1,17 +1,19 @@
-import Header from '@/src/common/containers/layouts/Header';
 import './globals.css';
 
 import { cookies } from 'next/headers';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { Database } from '@/database.types';
 import Footer from '@/src/common/containers/layouts/Footer';
+import Header from '@/src/common/containers/layouts/Header';
+import ThemeProviders from '@/src/common/containers/ThemeProviders';
+import { ReactNode } from 'react';
 
 export const dynamic = 'force-dynamic';
 
 export default async function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   const supabase = createServerComponentClient<Database>({ cookies });
 
@@ -21,16 +23,18 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body>
-        <Header user={user} />
-        <div className="min-h-screen flex flex-col justify-between gap-10">
-          <main className="flex justify-center">
-            <div className="max-w-screen-md flex flex-col items-center px-4 py-4 w-full mt-20">
-              {children}
-            </div>
-          </main>
-          <Footer />
-        </div>
+      <body className="bg-white dark:bg-zinc-900">
+        <ThemeProviders>
+          <Header user={user} />
+          <div className="min-h-screen flex flex-col justify-between gap-10">
+            <main className="flex justify-center">
+              <div className="max-w-screen-md flex flex-col items-center px-4 py-4 w-full mt-20">
+                {children}
+              </div>
+            </main>
+            <Footer />
+          </div>
+        </ThemeProviders>
       </body>
     </html>
   );

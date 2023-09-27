@@ -98,10 +98,10 @@ export default async function PostDetailPage({ params }: PageProps) {
   return (
     <section className="w-full pb-10 md:py-10 flex flex-col gap-5">
       <div>
-        <h1 className="text-4xl font-bold mb-2">{title}</h1>
-        <div className="flex items-center justify-between text-zinc-500 gap-4">
+        <h1 className="text-4xl font-bold mb-2 dark:text-white">{title}</h1>
+        <div className="flex items-center justify-between text-zinc-400 gap-4">
           <span className="text-sm">{createdAt}</span>
-          <span className="text-sm">{views} views</span>
+          <span className="text-sm ">{views} views</span>
         </div>
       </div>
       <div className="content">
