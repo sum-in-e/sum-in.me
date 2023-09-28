@@ -39,12 +39,14 @@ const HEADINGS = [
 ];
 const HIGHLIGHT_COLORS = ['#3b82f6', '#5eead4', '#fde047', '#f87171'];
 const TEXT_COLORS = [
+  '#27272a',
+  '#f4f4f5',
+  '#000000',
+  '#FFFFFF',
   '#ef4444',
   '#fde047',
   '#3b82f6',
   '#94FADB',
-  '#000000',
-  '#FFFFFF',
 ];
 
 const EditorStylingTab = ({ editor }: Props) => {
