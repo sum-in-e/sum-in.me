@@ -50,8 +50,8 @@ export default async function ProjectLinkloudPage() {
             들었습니다.
           </p>
           <strong className="mt-3">
-            "사람들이 저장한 링크를 잊지 않고 확인하여 정보를 얻을 수 있도록
-            도와주는 것"
+            {`"사람들이 저장한 링크를 잊지 않고 확인하여 정보를 얻을 수 있도록
+            도와주는 것"`}
           </strong>
           <p>
             단순한 링크 관리를 넘어서 사용자가 어떤 링크를 확인하지 않았는지,
@@ -72,7 +72,10 @@ export default async function ProjectLinkloudPage() {
               </h5>
               <ul className="flex flex-col gap-1">
                 {item.stacks.map((stack, index) => (
-                  <li className="text-zinc-700 dark:text-zinc-300">{`· ${stack}`}</li>
+                  <li
+                    key={index}
+                    className="text-zinc-700 dark:text-zinc-300"
+                  >{`· ${stack}`}</li>
                 ))}
               </ul>
             </div>

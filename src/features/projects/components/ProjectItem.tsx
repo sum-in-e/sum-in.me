@@ -13,6 +13,7 @@ interface Props {
 
 import { useRouter } from 'next/navigation';
 import { MouseEvent } from 'react';
+import Image from 'next/image';
 
 const ProjectItem = ({ id, name, description, duration, url, path }: Props) => {
   const router = useRouter();
@@ -34,12 +35,12 @@ const ProjectItem = ({ id, name, description, duration, url, path }: Props) => {
       <div className="hidden md:block absolute -inset-y-5 -inset-x-3 z-0 scale-95 bg-zinc-100 opacity-0 transition group-hover:scale-100 dark:bg-zinc-800 group-hover:opacity-50 rounded-lg duration-300" />
       <div className="flex gap-5 relative z-10">
         <div className="border bg-white rounded-lg w-fit h-fit p-1">
-          <img
+          <Image
             src="/images/projects/linkloud/logo.png"
             alt="Linkloud logo"
             height={50}
             width={50}
-          ></img>
+          ></Image>
         </div>
         <div className="flex-grow">
           <h4 className="text-xl font-semibold dark:text-white">{name}</h4>
