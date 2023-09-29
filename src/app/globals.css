@@ -86,6 +86,7 @@
   /* Code */
   .content code {
     @apply bg-zinc-200 text-sm p-1 rounded-md dark:bg-zinc-700;
+    font-family: 'JetBrainsMono', monospace;
   }
 
   /* Code Block */
@@ -95,12 +96,12 @@
   }
 
   .content pre code {
-    @apply bg-transparent text-inherit text-sm p-0;
+    @apply bg-zinc-800 text-inherit text-sm p-0 dark:bg-zinc-800;
   }
 
   .content .hljs-comment,
   .content .hljs-quote {
-    @apply text-zinc-500;
+    @apply text-zinc-500 dark:text-zinc-500;
   }
 
   .content .hljs-variable,
@@ -113,7 +114,7 @@
   .content .hljs-name,
   .content .hljs-selector-id,
   .content .hljs-selector-class {
-    @apply text-red-400;
+    @apply text-red-400 dark:text-red-400;
   }
 
   .content .hljs-number,
@@ -123,23 +124,23 @@
   .content .hljs-literal,
   .content .hljs-type,
   .content .hljs-params {
-    @apply text-orange-300;
+    @apply text-orange-300 dark:text-orange-300;
   }
 
   .content .hljs-string,
   .content .hljs-symbol,
   .content .hljs-bullet {
-    @apply text-green-400;
+    @apply text-green-400 dark:text-green-400;
   }
 
   .content .hljs-title,
   .content .hljs-section {
-    @apply text-yellow-200;
+    @apply text-yellow-200 dark:text-yellow-200;
   }
 
   .content .hljs-keyword,
   .content .hljs-selector-tag {
-    @apply text-blue-400;
+    @apply text-blue-400 dark:text-blue-400;
   }
 
   .content .hljs-emphasis {
