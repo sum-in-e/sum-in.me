@@ -39,14 +39,12 @@ const HEADINGS = [
 ];
 const HIGHLIGHT_COLORS = ['#3b82f6', '#5eead4', '#fde047', '#f87171'];
 const TEXT_COLORS = [
-  '#27272a',
-  '#f4f4f5',
   '#000000',
   '#FFFFFF',
-  '#ef4444',
-  '#fde047',
   '#3b82f6',
   '#94FADB',
+  '#fde047',
+  '#ef4444',
 ];
 
 const EditorStylingTab = ({ editor }: Props) => {
@@ -254,6 +252,12 @@ const EditorStylingTab = ({ editor }: Props) => {
           {TEXT_COLORS.map((color, index) => (
             <TextColorButton key={index} editor={editor} color={color} />
           ))}
+          <button
+            onClick={() => editor.chain().focus().unsetColor().run()}
+            className="bg-gray-300 rounded-full w-6 h-6 flex justify-center items-center cursor-pointer md:hover:opacity-70"
+          >
+            <BsSlashLg size={16} />
+          </button>
         </div>
       </div>
     </div>

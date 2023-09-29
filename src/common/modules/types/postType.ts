@@ -11,5 +11,4 @@ export type Post = {
   title: string;
   type: 'blog' | 'note';
   updated_at: string | null;
-  views: number;
 };

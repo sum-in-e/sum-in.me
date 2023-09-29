@@ -25,10 +25,10 @@ export default async function BlogPage() {
         {list?.map((item) => (
           <PostItem
             id={item.id}
+            key={item.id}
             title={item.title}
             description={item.description}
             created_at={item.created_at}
-            views={item.views}
           />
         ))}
       </ul>

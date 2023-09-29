@@ -8,10 +8,9 @@ interface Props {
   title: string;
   description: string;
   created_at: string;
-  views: number;
 }
 
-const PostItem = ({ id, title, description, created_at, views }: Props) => {
+const PostItem = ({ id, title, description, created_at }: Props) => {
   const router = useRouter();
   const createdAt = dayjs(created_at).format('YYYY-MM-DD');
 
@@ -27,11 +26,7 @@ const PostItem = ({ id, title, description, created_at, views }: Props) => {
           {title}
         </h3>
         <p className="text-zinc-400 truncate ">{description}</p>
-        <div className="flex items-center gap-4 mt-2">
-          <span className="text-sm text-zinc-400">
-            {createdAt} · {views} views
-          </span>
-        </div>
+        <p className="mt-2 text-sm text-zinc-400">{createdAt}</p>
       </div>
     </li>
   );

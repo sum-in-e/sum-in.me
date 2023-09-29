@@ -1,9 +1,9 @@
 import { cookies } from 'next/headers';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { Database } from '@/database.types';
-import dayjs from 'dayjs';
 import { Metadata } from 'next';
 import PostItem from '@/src/features/postList/components/PostItem';
+import Post from '@/src/features/post/container';
 
 export const dynamic = 'force-dynamic';
 
@@ -71,16 +71,19 @@ export async function generateMetadata({
 export default async function PostDetailPage({ params }: PageProps) {
   const supabase = createServerComponentClient<Database>({ cookies });
 
+  const { data: user } = await supabase.auth.getUser();
+
   let { data: post } = await supabase
     .from('post')
     .select('*')
     .eq('id', params.id);
 
   if (!post || post.length === 0) {
+    // 게시글 존재하지 않는 경우 최신 게시글 5개 추천
     let { data: suggestedPosts } = await supabase
       .from('post')
       .select('*')
-      .order('views', { ascending: false })
+      .order('created_at', { ascending: false })
       .limit(5);
 
     return (
@@ -106,32 +109,8 @@ export default async function PostDetailPage({ params }: PageProps) {
     );
   }
 
-  const { id, title, content, views, is_public, type, created_at } = post[0];
-
-  // Increase views
-  // TODO: 내가 확인한 경우는 카운트하지 않기
-  await supabase.rpc('increment_views', {
-    post_id: id,
-  });
-
   //TODO: is_public false인 게시물이면 로그인된 사람만 볼 수 있게
-  // TODO: 목차
   // TODO: 댓글
 
-  const createdAt = dayjs(created_at).format('YYYY-MM-DD');
-
-  return (
-    <section className="w-full pb-10 md:py-10 flex flex-col gap-5">
-      <div>
-        <h1 className="text-4xl font-bold mb-2 dark:text-white">{title}</h1>
-        <div className="flex items-center justify-between text-zinc-400 gap-4">
-          <span className="text-sm">{createdAt}</span>
-          <span className="text-sm ">{views} views</span>
-        </div>
-      </div>
-      <div className="content">
-        <div dangerouslySetInnerHTML={{ __html: content }} />
-      </div>
-    </section>
-  );
+  return <Post user={user.user} initPost={post[0]} />;
 }

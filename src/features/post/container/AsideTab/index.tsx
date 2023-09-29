@@ -3,14 +3,16 @@
 import { ReactNode, useState } from 'react';
 import { Editor } from '@tiptap/react';
 import { BsFillPaletteFill, BsFillPencilFill } from 'react-icons/bs';
-import EditorStylingTab from '@/src/features/newPost/container/AsideTab/EditorStylingTab';
-import PostInfoTab from '@/src/features/newPost/container/AsideTab/PostInfoTab';
+import EditorStylingTab from '@/src/features/post/container/AsideTab/EditorStylingTab';
+import PostInfoTab from '@/src/features/post/container/AsideTab/PostInfoTab';
+import { Post } from '@/src/common/modules/types/postType';
 
 interface Props {
   editor: Editor;
+  initPost?: Post;
 }
 
-const AsideTab = ({ editor }: Props) => {
+const AsideTab = ({ editor, initPost }: Props) => {
   const [activeTab, setActiveTab] = useState('info');
 
   return (
@@ -33,8 +35,12 @@ const AsideTab = ({ editor }: Props) => {
 
       {/* View of tab */}
       <div className="px-4 py-4">
-        {activeTab === 'info' && <PostInfoTab editor={editor} />}
-        {activeTab === 'style' && <EditorStylingTab editor={editor} />}
+        <div className={`${activeTab === 'info' ? 'block' : 'hidden'}`}>
+          <PostInfoTab editor={editor} initPost={initPost} />
+        </div>
+        <div className={`${activeTab === 'style' ? 'block' : 'hidden'}`}>
+          <EditorStylingTab editor={editor} />
+        </div>
       </div>
     </div>
   );

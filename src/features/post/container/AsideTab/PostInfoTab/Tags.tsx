@@ -29,7 +29,7 @@ const TagArea = ({ selectedTags, onClick }: Props) => {
     };
 
     getTags();
-  }, []);
+  }, [supabase]);
 
   if (error) return <p>{`Error: ${error}`}</p>;
 
