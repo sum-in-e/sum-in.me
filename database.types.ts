@@ -21,7 +21,6 @@ export interface Database {
           title: string;
           type: Database['public']['Enums']['post_type'];
           updated_at: string | null;
-          views: number;
         };
         Insert: {
           content: string;
@@ -34,7 +33,6 @@ export interface Database {
           title: string;
           type: Database['public']['Enums']['post_type'];
           updated_at?: string | null;
-          views?: number;
         };
         Update: {
           content?: string;
@@ -47,7 +45,6 @@ export interface Database {
           title?: string;
           type?: Database['public']['Enums']['post_type'];
           updated_at?: string | null;
-          views?: number;
         };
         Relationships: [];
       };
@@ -102,12 +99,6 @@ export interface Database {
       [_ in never]: never;
     };
     Functions: {
-      increment_views: {
-        Args: {
-          post_id: number;
-        };
-        Returns: undefined;
-      };
       insert_post_with_tag: {
         Args: {
           post_title: string;
@@ -116,6 +107,18 @@ export interface Database {
           post_is_public: boolean;
           post_type: Database['public']['Enums']['post_type'];
           tag_ids: number[];
+        };
+        Returns: number;
+      };
+      update_post_with_tags: {
+        Args: {
+          exist_post_id: number;
+          post_title: string;
+          post_description: string;
+          post_content: string;
+          post_is_public: boolean;
+          post_type: Database['public']['Enums']['post_type'];
+          new_tags_ids: number[];
         };
         Returns: number;
       };
