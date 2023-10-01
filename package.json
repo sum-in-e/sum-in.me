@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "yarn generate-sitemap next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "generate-sitemap": "ts-node src/scripts/sitemap.ts"
