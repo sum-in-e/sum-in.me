@@ -38,13 +38,13 @@ const ProjectItem = ({ id, name, description, duration, url, path }: Props) => {
           <Image
             src="/images/projects/linkloud/logo.png"
             alt="Linkloud logo"
-            height={50}
-            width={50}
+            height={40}
+            width={40}
           ></Image>
         </div>
         <div className="flex-grow">
           <h4 className="text-xl font-semibold dark:text-white">{name}</h4>
-          <p className="text-zinc-400 mt-2">{description}</p>
+          <p className="text-zinc-400">{description}</p>
           <p className="text-zinc-400 mt-2">{duration}</p>
           <div className="flex justify-end items-center mt-5">
             <button
