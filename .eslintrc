@@ -8,6 +8,7 @@
     "es6": true
   },
   "rules": {
+    "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error"
   },
   "extends": ["next/core-web-vitals"],
