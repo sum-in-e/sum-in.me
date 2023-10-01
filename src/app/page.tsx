@@ -26,10 +26,6 @@ export default async function HomePage() {
     .order('created_at', { ascending: false })
     .range(0, 2);
 
-  if (blogPostsError || notesError) {
-    return <div>Error</div>;
-  }
-
   return (
     <div className="w-full flex flex-col items-center gap-16">
       <section className="w-full">

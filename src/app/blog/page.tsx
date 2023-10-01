@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 export default async function BlogPage() {
   const supabase = createServerComponentClient<Database>({ cookies });
 
-  let { data: list, error } = await supabase
+  let { data: list } = await supabase
     .from('post')
     .select('*')
     .eq('type', 'blog')
