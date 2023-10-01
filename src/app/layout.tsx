@@ -7,6 +7,7 @@ import Footer from '@/src/common/containers/layouts/Footer';
 import Header from '@/src/common/containers/layouts/Header';
 import ThemeProviders from '@/src/common/containers/ThemeProviders';
 import { ReactNode } from 'react';
+import GoogleAnalytics from '@/src/common/containers/GoogleAnalytics';
 
 export const dynamic = 'force-dynamic';
 
@@ -16,6 +17,7 @@ export default async function RootLayout({
   children: ReactNode;
 }) {
   const supabase = createServerComponentClient<Database>({ cookies });
+  const isProduction = process.env.NEXT_PUBLIC_MODE === 'production';
 
   const {
     data: { user },
@@ -23,6 +25,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
+      {isProduction && <GoogleAnalytics />}
       <body className="bg-white dark:bg-zinc-900">
         <ThemeProviders>
           <Header user={user} />
