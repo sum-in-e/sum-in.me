@@ -73,7 +73,6 @@ const Post = ({ user, initPost }: { user: User | null; initPost?: Post }) => {
   });
 
   useEffect(() => {
-    // TODO: 로그인한 경우 페이지에서 뒤로가기, 앞으로가기, 새로고침 시 확인 받기
     const handleBeforeUnload = (event: BeforeUnloadEvent) => {
       event.preventDefault();
       event.returnValue =
@@ -89,11 +88,6 @@ const Post = ({ user, initPost }: { user: User | null; initPost?: Post }) => {
   if (!editor) {
     return null;
   }
-
-  // 노션처럼 에디터 자체가 UI가 되고 어드민 유저는 별도 편집모드에 진입하지 않아도 같은 페이지에서 글을 수정하거나 읽을 수 있도록 만들기
-  // 1. 어드민 유저는 새 글 작성 뿐만 아니라 기존 글 확인 시에도 편집이 가능해야한다. -> 모든 UI가 같은 상태에서 편집 가능 여부만 달라져야한다. (노션처럼)
-  // 2. 어드민 유저가 아닌 경우 제목 인풋과 에디터는 readonly가 되어야한다. (편집에 관련된 기타 요소는 보이지 않아야한다. - 텍스트 스타일 변경 컴포넌트 등)
-  // 3. 어드민 유저가 페이지에서 벗어날 때 에디터의 기존 컨텐츠에서 수정 사항이 발생한 경우에는 페이지 변경사항을 저장하라는 확인 이벤트를 발생시킨다.
 
   return (
     <>

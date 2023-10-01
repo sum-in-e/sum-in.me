@@ -27,8 +27,6 @@ export default async function HomePage() {
     .range(0, 2);
 
   if (blogPostsError || notesError) {
-    // TODO: Error UI
-    // TODO: 404 Page
     return <div>Error</div>;
   }
 

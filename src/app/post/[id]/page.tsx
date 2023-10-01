@@ -109,8 +109,5 @@ export default async function PostDetailPage({ params }: PageProps) {
     );
   }
 
-  //TODO: is_public false인 게시물이면 로그인된 사람만 볼 수 있게
-  // TODO: 댓글
-
   return <Post user={user.user} initPost={post[0]} />;
 }

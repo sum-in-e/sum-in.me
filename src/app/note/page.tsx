@@ -15,9 +15,6 @@ export default async function NotePage() {
     .eq('is_public', true)
     .order('created_at', { ascending: false });
 
-  // TODO: 페이지네이션
-  // TODO: 미발행글 리스트로 따로 만들기(나만 볼 수 있도록 권한 설정)
-
   return (
     <section className="w-full">
       <h2 className="text-4xl mb-10 font-bold dark:text-white">Note</h2>
