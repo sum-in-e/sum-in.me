@@ -23,7 +23,7 @@ export async function generateMetadata({
         title: 'sumDev',
         description: 'Front-end Developer, Becoming a solo engineer',
         image:
-          'https://res.cloudinary.com/duinj0dld/image/upload/v1695111909/sumDev-cover_c2ptxd.webp',
+          'https://res.cloudinary.com/duinj0dld/image/upload/v1695111909/dev.sum-in.me/sumDev-cover.webp',
       };
     }
 
