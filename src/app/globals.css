@@ -102,7 +102,8 @@
   .content pre code .hljs-property,
   .content pre code .hljs-attr,
   .content pre code .hljs-function,
-  .content pre code .hljs-operator {
+  .content pre code .hljs-operator,
+  .content pre code .hljs-selector-attr {
     @apply text-white dark:text-white;
   }
 
