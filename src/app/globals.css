@@ -100,7 +100,7 @@
   }
 
   .content pre code span {
-    @apply text-white dark:text-white;
+    @apply text-white dark:text-white text-sm;
   }
 
   .content pre code .hljs-comment {
