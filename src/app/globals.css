@@ -30,15 +30,15 @@
   }
 
   .content h1 {
-    @apply text-4xl font-bold my-5 dark:text-zinc-100 text-black;
+    @apply text-4xl font-bold my-6 dark:text-zinc-100 text-black;
   }
 
   .content h2 {
-    @apply text-3xl font-semibold my-4 dark:text-zinc-100 text-black;
+    @apply text-3xl font-semibold my-5 dark:text-zinc-100 text-black;
   }
 
   .content h3 {
-    @apply text-xl font-semibold my-2 dark:text-zinc-100 text-black;
+    @apply text-xl font-semibold my-3 dark:text-zinc-100 text-black;
   }
 
   .content ul {
@@ -91,63 +91,65 @@
 
   /* Code Block */
   .content pre {
-    @apply bg-zinc-800 rounded-lg text-white py-3 px-4 my-3;
+    @apply bg-zinc-800 rounded-lg py-3 px-4 my-3;
     font-family: 'JetBrainsMono', monospace;
   }
 
   .content pre code {
-    @apply bg-zinc-800 text-inherit text-sm p-0 dark:bg-zinc-800;
+    @apply bg-zinc-800 text-inherit text-sm p-0 dark:bg-zinc-800 text-white dark:text-white;
   }
 
-  .content .hljs-comment,
-  .content .hljs-quote {
-    @apply text-zinc-500 dark:text-zinc-500;
+  .content pre code .hljs-property,
+  .content pre code .hljs-attr,
+  .content pre code .hljs-function,
+  .content pre code .hljs-operator {
+    @apply text-white dark:text-white;
   }
 
-  .content .hljs-variable,
-  .content .hljs-template-variable,
-  .content .hljs-attribute,
-  .content .hljs-tag,
-  .content .hljs-name,
-  .content .hljs-regexp,
-  .content .hljs-link,
-  .content .hljs-name,
-  .content .hljs-selector-id,
-  .content .hljs-selector-class {
+  .content pre code .hljs-variable,
+  .content pre code .hljs-template-variable,
+  .content pre code .hljs-attribute,
+  .content pre code .hljs-tag,
+  .content pre code .hljs-name,
+  .content pre code .hljs-regexp,
+  .content pre code .hljs-link,
+  .content pre code .hljs-name,
+  .content pre code .hljs-selector-id,
+  .content pre code .hljs-selector-class {
     @apply text-red-400 dark:text-red-400;
   }
 
-  .content .hljs-number,
-  .content .hljs-meta,
-  .content .hljs-built_in,
-  .content .hljs-builtin-name,
-  .content .hljs-literal,
-  .content .hljs-type,
-  .content .hljs-params {
+  .content pre code .hljs-number,
+  .content pre code .hljs-meta,
+  .content pre code .hljs-built_in,
+  .content pre code .hljs-builtin-name,
+  .content pre code .hljs-literal,
+  .content pre code .hljs-type,
+  .content pre code .hljs-params {
     @apply text-orange-300 dark:text-orange-300;
   }
 
-  .content .hljs-string,
-  .content .hljs-symbol,
-  .content .hljs-bullet {
+  .content pre code .hljs-string,
+  .content pre code .hljs-symbol,
+  .content pre code .hljs-bullet {
     @apply text-green-400 dark:text-green-400;
   }
 
-  .content .hljs-title,
-  .content .hljs-section {
+  .content pre code .hljs-title,
+  .content pre code .hljs-section {
     @apply text-yellow-200 dark:text-yellow-200;
   }
 
-  .content .hljs-keyword,
-  .content .hljs-selector-tag {
+  .content pre code .hljs-keyword,
+  .content pre code .hljs-selector-tag {
     @apply text-blue-400 dark:text-blue-400;
   }
 
-  .content .hljs-emphasis {
+  .content pre code .hljs-emphasis {
     @apply italic;
   }
 
-  .content .hljs-strong {
+  .content pre code .hljs-strong {
     @apply font-bold;
   }
 }
