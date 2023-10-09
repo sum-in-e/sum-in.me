@@ -22,7 +22,7 @@ import ts from 'highlight.js/lib/languages/typescript';
 import xml from 'highlight.js/lib/languages/xml';
 import sql from 'highlight.js/lib/languages/sql';
 import bash from 'highlight.js/lib/languages/bash';
-import TitleInput from '@/src/features/post/container/TitleInput';
+import TitleArea from '@/src/features/post/container/TitleArea';
 import AsideTab from '@/src/features/post/container/AsideTab';
 import { User } from '@supabase/supabase-js';
 import { Post } from '@/src/common/modules/types/postType';
@@ -88,12 +88,12 @@ const Post = ({ user, initPost }: { user: User | null; initPost?: Post }) => {
   if (!editor) {
     return null;
   }
-
+  // TODO: 저장중에는 publish 못 하도록 수정
   return (
     <>
       <section className="w-full pb-10 md:py-10 flex flex-col gap-5">
         <div>
-          <TitleInput isAdmin={isAdmin} initTitle={initPost?.title} />
+          <TitleArea isAdmin={isAdmin} initTitle={initPost?.title} />
           {initPost && (
             <p className="text-zinc-400 text-sm">
               {dayjs(initPost.created_at).format('YYYY-MM-DD')}

@@ -1,6 +1,6 @@
 'use client';
 
-import { ChangeEvent, useEffect } from 'react';
+import { ChangeEvent, useEffect, useRef } from 'react';
 import { useTitleState } from '@/src/features/post/modules/postStore';
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
   initTitle?: string;
 }
 
-const TitleInput = ({ isAdmin, initTitle }: Props) => {
+const TitleArea = ({ isAdmin, initTitle }: Props) => {
   const { title, setTitle } = useTitleState();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -25,15 +25,16 @@ const TitleInput = ({ isAdmin, initTitle }: Props) => {
     }
   }, [initTitle, setTitle]);
 
-  return (
+  return isAdmin ? (
     <input
       className="text-4xl mb-2 font-bold reset-input dark:text-white bg-inherit"
       placeholder="제목을 입력하세요."
       value={title}
       onChange={handleChange}
-      readOnly={!isAdmin}
     />
+  ) : (
+    <h1 className="text-4xl mb-2 font-bold dark:text-white">{initTitle}</h1>
   );
 };
 
-export default TitleInput;
+export default TitleArea;
