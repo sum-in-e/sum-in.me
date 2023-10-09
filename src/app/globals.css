@@ -96,15 +96,25 @@
   }
 
   .content pre code {
-    @apply bg-zinc-800 text-inherit text-sm p-0 dark:bg-zinc-800 text-white dark:text-white;
+    @apply bg-zinc-800 text-white dark:text-white text-sm p-0 dark:bg-zinc-800;
+  }
+
+  .content pre code span {
+    @apply text-white dark:text-white;
+  }
+
+  .content pre code .hljs-comment {
+    @apply text-zinc-500 dark:text-zinc-500;
   }
 
   .content pre code .hljs-property,
   .content pre code .hljs-attr,
   .content pre code .hljs-function,
-  .content pre code .hljs-operator,
-  .content pre code .hljs-selector-attr {
+  .content pre code .hljs-operator {
     @apply text-white dark:text-white;
+  }
+  .content pre code .hljs-selector-attr {
+    @apply text-blue-300 dark:text-blue-300;
   }
 
   .content pre code .hljs-variable,
@@ -117,7 +127,7 @@
   .content pre code .hljs-name,
   .content pre code .hljs-selector-id,
   .content pre code .hljs-selector-class {
-    @apply text-red-400 dark:text-red-400;
+    @apply text-blue-200 dark:text-blue-200;
   }
 
   .content pre code .hljs-number,
@@ -126,24 +136,21 @@
   .content pre code .hljs-builtin-name,
   .content pre code .hljs-literal,
   .content pre code .hljs-type,
-  .content pre code .hljs-params {
-    @apply text-orange-300 dark:text-orange-300;
-  }
-
+  .content pre code .hljs-params,
   .content pre code .hljs-string,
   .content pre code .hljs-symbol,
   .content pre code .hljs-bullet {
-    @apply text-green-400 dark:text-green-400;
+    @apply text-purple-300 dark:text-purple-300;
   }
 
   .content pre code .hljs-title,
   .content pre code .hljs-section {
-    @apply text-yellow-200 dark:text-yellow-200;
+    @apply text-blue-400 dark:text-blue-400;
   }
 
   .content pre code .hljs-keyword,
   .content pre code .hljs-selector-tag {
-    @apply text-blue-400 dark:text-blue-400;
+    @apply text-red-400 dark:text-red-400;
   }
 
   .content pre code .hljs-emphasis {
