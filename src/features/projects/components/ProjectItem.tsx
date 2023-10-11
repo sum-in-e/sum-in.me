@@ -1,5 +1,8 @@
 'use client';
 
+import Image from 'next/image';
+import { MouseEvent } from 'react';
+import { useRouter } from 'next/navigation';
 import { BsArrowRightShort, BsBoxArrowUpRight } from 'react-icons/bs';
 
 interface Props {
@@ -10,10 +13,6 @@ interface Props {
   path: string;
   duration: string;
 }
-
-import { useRouter } from 'next/navigation';
-import { MouseEvent } from 'react';
-import Image from 'next/image';
 
 const ProjectItem = ({ id, name, description, duration, url, path }: Props) => {
   const router = useRouter();

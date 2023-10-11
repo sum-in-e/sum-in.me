@@ -168,7 +168,7 @@
   }
 
   .skeleton {
-    @apply animate-pulse bg-gray-300;
+    @apply animate-pulse bg-zinc-200 dark:bg-opacity-10;
   }
 
   .reset-input {

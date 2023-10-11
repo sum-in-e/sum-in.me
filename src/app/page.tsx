@@ -1,6 +1,6 @@
 import { Database } from '@/database.types';
-import PostItem from '@/src/features/postList/components/PostItem';
-import ReadMoreButton from '@/src/features/postList/components/ReadMoreButton';
+import PostItem from '@/src/features/posts/components/PostItem';
+import ReadMoreButton from '@/src/features/posts/components/ReadMoreButton';
 import ProjectList from '@/src/features/projects/containers/ProjectList';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';

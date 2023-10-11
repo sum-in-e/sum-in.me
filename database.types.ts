@@ -99,6 +99,29 @@ export interface Database {
       [_ in never]: never;
     };
     Functions: {
+      fetch_posts: {
+        Args: {
+          post_type_value: Database['public']['Enums']['post_type'];
+          tag_id_value?: string;
+          year_value?: string;
+        };
+        Returns: {
+          id: number;
+          title: string;
+          description: string;
+          created_at: string;
+        }[];
+      };
+      get_tags_and_post_counts: {
+        Args: {
+          post_type_value: Database['public']['Enums']['post_type'];
+        };
+        Returns: {
+          id: number;
+          name: string;
+          posts: number;
+        }[];
+      };
       insert_post_with_tag: {
         Args: {
           post_title: string;

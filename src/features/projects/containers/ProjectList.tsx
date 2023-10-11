@@ -1,3 +1,5 @@
+'use client';
+
 import ProjectItem from '@/src/features/projects/components/ProjectItem';
 
 const ProjectList = () => {

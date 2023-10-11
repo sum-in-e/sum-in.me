@@ -2,7 +2,7 @@ import { cookies } from 'next/headers';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { Database } from '@/database.types';
 import { Metadata } from 'next';
-import PostItem from '@/src/features/postList/components/PostItem';
+import PostItem from '@/src/features/posts/components/PostItem';
 import Post from '@/src/features/post/container';
 
 export const dynamic = 'force-dynamic';

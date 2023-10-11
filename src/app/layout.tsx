@@ -8,6 +8,7 @@ import Header from '@/src/common/containers/layouts/Header';
 import ThemeProviders from '@/src/common/containers/ThemeProviders';
 import { ReactNode } from 'react';
 import GoogleAnalytics from '@/src/common/containers/GoogleAnalytics';
+import QueryProvider from '@/src/common/containers/QueryProvider';
 
 export const dynamic = 'force-dynamic';
 
@@ -27,17 +28,19 @@ export default async function RootLayout({
     <html lang="en">
       {isProduction && <GoogleAnalytics />}
       <body className="bg-white dark:bg-zinc-900">
-        <ThemeProviders>
-          <Header user={user} />
-          <div className="min-h-screen flex flex-col justify-between gap-10">
-            <main className="flex justify-center">
-              <div className="max-w-screen-md flex flex-col items-center px-4 py-4 w-full mt-20">
-                {children}
-              </div>
-            </main>
-            <Footer />
-          </div>
-        </ThemeProviders>
+        <QueryProvider>
+          <ThemeProviders>
+            <Header user={user} />
+            <div className="min-h-screen flex flex-col justify-between gap-10">
+              <main className="flex justify-center">
+                <div className="max-w-screen-md flex flex-col items-center px-4 py-4 w-full mt-20">
+                  {children}
+                </div>
+              </main>
+              <Footer />
+            </div>
+          </ThemeProviders>
+        </QueryProvider>
       </body>
     </html>
   );
