@@ -71,7 +71,9 @@ export async function generateMetadata({
 export default async function PostDetailPage({ params }: PageProps) {
   const supabase = createServerComponentClient<Database>({ cookies });
 
-  const { data: user } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
   let { data: post } = await supabase
     .from('post')
@@ -109,5 +111,17 @@ export default async function PostDetailPage({ params }: PageProps) {
     );
   }
 
-  return <Post user={user.user} initPost={post[0]} />;
+  if (!post[0].is_public && !user) {
+    // 비공개 글인데 방문자가 확인하는 경우
+
+    return (
+      <div className="w-full flex justify-center items-center px-5 py-10 mb-10 bg-zinc-100 dark:bg-opacity-10 rounded-md">
+        <h3 className="text-lg text-zinc-800 dark:text-zinc-200">
+          비공개 글입니다.
+        </h3>
+      </div>
+    );
+  }
+
+  return <Post user={user} initPost={post[0]} />;
 }
