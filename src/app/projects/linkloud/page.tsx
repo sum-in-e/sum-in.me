@@ -7,6 +7,7 @@ export default async function ProjectLinkloudPage() {
   return (
     <section>
       <h2 className="text-4xl font-bold dark:text-white">Linkloud</h2>
+      <p className="text-right text-xs italic">2023.08 - present</p>
       <Image
         src={cover}
         alt="Linkloud Cover Image"
@@ -93,6 +94,7 @@ const techStacks = [
       'NextJS',
       'TypeScript',
       'Tailwind CSS',
+      'React Query(TanStack Query)',
       'Zustand',
       'PWA',
       'Chrome Extensions',
