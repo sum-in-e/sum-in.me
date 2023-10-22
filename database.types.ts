@@ -9,6 +9,24 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
+      guestbook: {
+        Row: {
+          comment: string | null;
+          created_at: string;
+          id: number;
+        };
+        Insert: {
+          comment?: string | null;
+          created_at?: string;
+          id?: number;
+        };
+        Update: {
+          comment?: string | null;
+          created_at?: string;
+          id?: number;
+        };
+        Relationships: [];
+      };
       post: {
         Row: {
           content: string;

@@ -12,6 +12,9 @@ const queryKeys = {
         ? (['getTagsForPostFiltering', params] as const)
         : (['getTagsForPostFiltering'] as const),
   },
+  comment: {
+    getComments: () => ['getComments'] as const,
+  },
 };
 
 export default queryKeys;
