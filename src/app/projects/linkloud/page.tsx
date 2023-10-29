@@ -5,7 +5,7 @@ import cover from '/public/images/projects/linkloud/linkloud_main.webp';
 
 export default async function ProjectLinkloudPage() {
   return (
-    <section>
+    <article>
       <h2 className="text-4xl font-bold dark:text-white">Linkloud</h2>
       <p className="text-right text-xs italic">2023.08 - present</p>
       <Image
@@ -28,7 +28,7 @@ export default async function ProjectLinkloudPage() {
           />
         </Link>
       </div>
-      <article className="mt-10">
+      <section className="mt-10">
         <h4 className="text-xl font-semibold dark:text-white">소개</h4>
         <hr className="mt-2 mb-5 dark:border-zinc-700" />
         <div className="text-zinc-700 flex flex-col gap-3 dark:text-zinc-300">
@@ -61,8 +61,8 @@ export default async function ProjectLinkloudPage() {
             수 있도록 돕는 서비스를 목표로 하고 있습니다.
           </p>
         </div>
-      </article>
-      <article className="mt-16">
+      </section>
+      <section className="mt-16">
         <h4 className="text-xl font-semibold dark:text-white">기술 스택</h4>
         <hr className="mt-2 mb-5 dark:border-zinc-700" />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -82,8 +82,8 @@ export default async function ProjectLinkloudPage() {
             </div>
           ))}
         </div>
-      </article>
-    </section>
+      </section>
+    </article>
   );
 }
 

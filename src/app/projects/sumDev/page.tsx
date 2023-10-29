@@ -5,7 +5,7 @@ import cover from '/public/images/projects/sumDev/sumDev_main.webp';
 
 export default async function ProjectSumDevPage() {
   return (
-    <section>
+    <article>
       <h2 className="text-4xl font-bold dark:text-white">sumDev</h2>
       <p className="text-right text-xs italic">2023.09 - present</p>
       <Image
@@ -28,7 +28,7 @@ export default async function ProjectSumDevPage() {
           />
         </Link>
       </div>
-      <article className="mt-10">
+      <section className="mt-10">
         <h4 className="text-xl font-semibold dark:text-white">소개</h4>
         <hr className="mt-2 mb-5 dark:border-zinc-700" />
         <div className="text-zinc-700 flex flex-col gap-3 dark:text-zinc-300">
@@ -36,8 +36,8 @@ export default async function ProjectSumDevPage() {
             개발하며 알게 된 것들과 프로젝트를 기록하는 개인 웹사이트입니다.
           </p>
         </div>
-      </article>
-      <article className="mt-16">
+      </section>
+      <section className="mt-16">
         <h4 className="text-xl font-semibold dark:text-white">기술 스택</h4>
         <hr className="mt-2 mb-5 dark:border-zinc-700" />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -57,8 +57,8 @@ export default async function ProjectSumDevPage() {
             </div>
           ))}
         </div>
-      </article>
-    </section>
+      </section>
+    </article>
   );
 }
 
