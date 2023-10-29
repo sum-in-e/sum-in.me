@@ -4,10 +4,6 @@ import IntroduceSection from '@/src/features/resume/containers/IntroduceSection'
 import ProjectSection from '@/src/features/resume/containers/ProjectSection';
 import SkillSection from '@/src/features/resume/containers/SkillSection';
 
-export const metadata = {
-  title: '김수민 | resume',
-};
-
 export default function GuestBookPage() {
   return (
     <article className="w-full text-zinc-900 dark:text-zinc-100">
@@ -29,3 +25,38 @@ export default function GuestBookPage() {
     </article>
   );
 }
+
+const title = '김수민 | resume';
+const description = 'Front-End Engineer';
+const coverUrl =
+  'https://res.cloudinary.com/duinj0dld/image/upload/v1698549670/dev.sum-in.me/resume-cover_mvjipa.webp';
+
+export const metadata = {
+  title,
+  description,
+  keywords: 'resume, sumDev, SuminKim',
+  metadataBase: new URL('https://dev.sum-in.me/resume'),
+  openGraph: {
+    title,
+    description,
+    url: 'https://dev.sum-in.me/resume',
+    type: 'website',
+    images: [
+      {
+        url: coverUrl,
+        alt: 'Resume Cover Image',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title,
+    description,
+    images: [
+      {
+        url: coverUrl,
+        alt: 'Resume Cover Image',
+      },
+    ],
+  },
+};
