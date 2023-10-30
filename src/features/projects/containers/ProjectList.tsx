@@ -3,9 +3,13 @@
 import ProjectItem from '@/src/features/projects/components/ProjectItem';
 
 const ProjectList = () => {
+  const projectsSortByRecentCreated = projects.sort(
+    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+  );
+
   return (
     <ul className="flex flex-col gap-10">
-      {projects.map((project) => (
+      {projectsSortByRecentCreated.map((project) => (
         <ProjectItem key={project.id} {...project} />
       ))}
     </ul>
@@ -25,6 +29,7 @@ const projects = [
     alt: 'Linkloud logo',
     path: '/projects/linkloud',
     duration: '2023.08 - present',
+    createdAt: '2023-08-15',
   },
   {
     id: 1,
@@ -35,5 +40,6 @@ const projects = [
     alt: 'sumDev logo',
     path: '/projects/sumDev',
     duration: '2023.09 - present',
+    createdAt: '2023-09-23',
   },
 ];
