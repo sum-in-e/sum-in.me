@@ -85,6 +85,7 @@ export default async function PostDetailPage({ params }: PageProps) {
     let { data: suggestedPosts } = await supabase
       .from('post')
       .select('*')
+      .eq('is_public', true)
       .order('created_at', { ascending: false })
       .limit(5);
 
