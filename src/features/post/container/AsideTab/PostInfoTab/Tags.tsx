@@ -38,13 +38,13 @@ const TagArea = ({ selectedTags, onClick }: Props) => {
   if (tags.length === 0) return <p>No Tags</p>;
 
   return (
-    <ul className="flex gap-x-2 gap-y-1 flex-wrap">
+    <ul className="flex gap-x-2 gap-y-1 flex-wrap max-h-60 overflow-scroll">
       {tags?.map((tag) => (
         <li
           key={tag.id}
           className={`py-1 text-sm cursor-pointer md:hover:text-opacity-70 flex justify-center items-center ${
             selectedTags.includes(tag.id)
-              ? 'text-zinc-800 underline'
+              ? 'text-zinc-800 font-semibold underline'
               : 'text-zinc-500'
           }`}
           onClick={() => handleClick(tag.id)}
