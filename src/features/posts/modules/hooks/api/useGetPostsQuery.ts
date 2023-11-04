@@ -15,6 +15,7 @@ export type GetPostsParams = {
   year?: string;
 };
 
+// public post중 조건에 맞는 post를 조회합니다.
 async function getPosts(params: GetPostsParams): Promise<PostItem[]> {
   const supabase = createClientComponentClient<Database>();
 
