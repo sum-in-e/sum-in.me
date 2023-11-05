@@ -42,6 +42,7 @@ const createSitemap = async () => {
         <url><loc>https://dev.sum-in.me/projects</loc></url>
         <url><loc>https://dev.sum-in.me/projects/linkloud</loc></url>
         <url><loc>https://dev.sum-in.me/projects/sumDev</loc></url>
+        <url><loc>https://dev.sum-in.me/guestbook</loc></url>
         ${postUrls.join('\n')}
         </urlset>`.replace(/\n|\t/g, ' ');
 
