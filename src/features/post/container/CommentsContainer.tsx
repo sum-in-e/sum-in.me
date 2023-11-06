@@ -4,9 +4,6 @@ import { useTheme } from 'next-themes';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef } from 'react';
 
-const repoId = process.env.NEXT_PUBLIC_GISCUS_REPO_ID || '';
-const categoryId = process.env.NEXT_PUBLIC_GISCUS_CATEGORY_ID || '';
-
 const CommentsContainer = () => {
   const ref = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
@@ -23,9 +20,9 @@ const CommentsContainer = () => {
     scriptElem.crossOrigin = 'anonymous';
 
     scriptElem.setAttribute('data-repo', 'sum-in-e/sumDev-comments');
-    scriptElem.setAttribute('data-repo-id', repoId);
+    scriptElem.setAttribute('data-repo-id', 'R_kgDOKpwo8w');
     scriptElem.setAttribute('data-category', 'General');
-    scriptElem.setAttribute('data-category-id', categoryId);
+    scriptElem.setAttribute('data-category-id', 'DIC_kwDOKpwo884CateI');
     scriptElem.setAttribute('data-mapping', 'pathname');
     scriptElem.setAttribute('data-strict', '0');
     scriptElem.setAttribute('data-reactions-enabled', '1');
