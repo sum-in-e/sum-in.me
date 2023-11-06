@@ -4,6 +4,7 @@ import { Database } from '@/database.types';
 import { Metadata } from 'next';
 import PostItem from '@/src/features/posts/components/PostItem';
 import Post from '@/src/features/post/container';
+import CommentsContainer from '@/src/features/post/container/CommentsContainer';
 
 export const dynamic = 'force-dynamic';
 
@@ -124,5 +125,10 @@ export default async function PostDetailPage({ params }: PageProps) {
     );
   }
 
-  return <Post user={user} initPost={post[0]} />;
+  return (
+    <>
+      <Post user={user} initPost={post[0]} />
+      <CommentsContainer />
+    </>
+  );
 }
