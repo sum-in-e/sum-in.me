@@ -99,20 +99,7 @@ const BreakAndCompanyDetail = () => {
           (일본 사이트)
         </span>
         <ul className="mt-2">
-          <DiscLi>
-            brg 일본 사이트 UI 작업 전체 진행 (반응형)
-            <ul className="mt-1">
-              <DiscLi>
-                한국 도메인과 같은 UI를 구현해야 하는 부분은 해당 UI를 공통
-                컴포넌트로 분리하여 한국, 일본 도메인에서 재사용 할 수 있도록
-                하였습니다.
-              </DiscLi>
-              <DiscLi>
-                공통 컴포넌트에서 도메인별로 다른 언어를 제공하기 위하여 i18next
-                라이브러리를 사용하였습니다.
-              </DiscLi>
-            </ul>
-          </DiscLi>
+          <DiscLi>brg 일본 사이트 UI 작업 전체 진행 (반응형)</DiscLi>
         </ul>
       </li>
       <li>
