@@ -3,14 +3,13 @@ import ExperienceSection from '@/src/features/resume/containers/ExperienceSectio
 import IntroduceSection from '@/src/features/resume/containers/IntroduceSection';
 import ProjectSection from '@/src/features/resume/containers/ProjectSection';
 import SkillSection from '@/src/features/resume/containers/SkillSection';
-import dayjs from 'dayjs';
 
 export default function GuestBookPage() {
   return (
     <article className="w-full text-zinc-900 dark:text-zinc-100">
       <header className="mb-2">
         <p className="text-xs text-zinc-400 text-end mb-4">
-          {`Last Updated: ${dayjs(Date()).format('YYYY.MM.DD hh:mm')}`}
+          Last Updated: 2023.11.15
         </p>
         <h2 className="text-5xl mb-2 font-semibold dark:text-white">김수민</h2>
         <p className="text-md text-zinc-400 dark:text-opacity-90">
