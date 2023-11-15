@@ -1,9 +1,7 @@
 import { ExperienceType } from '@/src/features/resume/containers/ExperienceSection/Experiences';
-import Link from 'next/link';
 
 const ExperienceItem = ({
   name,
-  href,
   position,
   period,
   description,
@@ -13,13 +11,7 @@ const ExperienceItem = ({
   return (
     <li className="flex gap-2 flex-col md:flex-row">
       <div className="md:min-w-[30%] md:max-w-[30%]">
-        <Link
-          href={href}
-          target="_blank"
-          className="font-bold text-2xl underline"
-        >
-          {name}
-        </Link>
+        <h4 className="font-bold text-2xl"> {name}</h4>
         <p className="text-zinc-400 dark:text-opacity-90">{position}</p>
         <p className="text-sm">{period}</p>
       </div>
