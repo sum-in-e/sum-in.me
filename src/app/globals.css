@@ -14,8 +14,34 @@
   * {
     -webkit-tap-highlight-color: transparent;
   }
+}
 
-  /* content style */
+@layer components {
+  .color-duration {
+    @apply transition-colors duration-300;
+  }
+
+  .skeleton {
+    @apply animate-pulse bg-zinc-200 dark:bg-opacity-10;
+  }
+
+  .reset-input {
+    @apply w-full placeholder-gray-400 outline-none;
+  }
+
+  .reset-textarea {
+    @apply w-full resize-none placeholder-gray-400 outline-none;
+  }
+
+  .reset-button {
+    @apply w-full select-none disabled:cursor-not-allowed disabled:bg-gray-400 disabled:hover:bg-gray-400;
+  }
+
+  .hyperlink {
+    @apply text-blue-500 hover:underline;
+  }
+
+  /* 여기부터는 게시글 에디터(tiptap)의 스타일 커스텀을 위한 코드입니다. */
   .content .tiptap {
     @apply outline-none;
   }
@@ -159,27 +185,5 @@
 
   .content pre code .hljs-strong {
     @apply font-bold;
-  }
-}
-
-@layer components {
-  .color-duration {
-    @apply transition-colors duration-300;
-  }
-
-  .skeleton {
-    @apply animate-pulse bg-zinc-200 dark:bg-opacity-10;
-  }
-
-  .reset-input {
-    @apply w-full placeholder-gray-400 outline-none;
-  }
-
-  .reset-textarea {
-    @apply w-full resize-none placeholder-gray-400 outline-none;
-  }
-
-  .reset-button {
-    @apply w-full select-none disabled:cursor-not-allowed disabled:bg-gray-400 disabled:hover:bg-gray-400;
   }
 }
