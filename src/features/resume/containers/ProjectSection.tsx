@@ -66,13 +66,10 @@ const ProjectSection = () => {
             <p className="text-lg mb-1 font-semibold">Description</p>
             <ul>
               <DiscLi>1인 개발</DiscLi>
-              {/* <DiscLi>
-                서비스를 처음부터 끝까지 직접 만들어보고 싶어서 개발
-              </DiscLi>
               <DiscLi>
-                나중에 확인하려고 했던 링크를 잊어버리는 문제를 해결하는 것에
-                초점을 맞춰 기획 진행
-              </DiscLi> */}
+                나중에 확인하려고 저장했던 링크를 잊어버리는 문제를 해결함으로써
+                필요한 정보를 얻을 수 있도록 하는 것에 목적을 두었습니다.
+              </DiscLi>
               <DiscLi>
                 링크를 저장하고 원하는 카테고리로 분류할 수 있는 테이블 설계 및
                 CRUD 구현
