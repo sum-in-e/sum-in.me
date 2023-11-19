@@ -20,17 +20,10 @@ const BreakAndCompanyDetail = () => {
               <DiscLi>
                 메인 페이지 / 판매자별 등록 상품 확인 페이지 / 장바구니 / 주문
                 내역 페이지 개발 담당
-                {/* <ul className="mt-1">
-                  <DiscLi>
-                    React Query의 useInfiniteQuery와 IntersectionObserver를
-                    활용한 무한 스크롤 구현
-                  </DiscLi>
-                  <DiscLi>
-                    UI를 최소 단위로 나누어 컴포넌트화하고 해당 컴포넌트를
-                    조립해 큰 컴포넌트를 만드는 방식으로 재사용성을 높이고자
-                    하였습니다.
-                  </DiscLi>
-                </ul> */}
+              </DiscLi>
+              <DiscLi>
+                UI를 최소 단위로 나누어 컴포넌트화하고 해당 컴포넌트를 조립해 큰
+                컴포넌트를 만드는 방식으로 재사용성을 높이고자 하였습니다.
               </DiscLi>
             </ul>
           </DiscLi>
@@ -41,7 +34,7 @@ const BreakAndCompanyDetail = () => {
         <ul className="mt-2">
           <DiscLi>
             vercel을 통해 호스팅하는 모노레포에서 특정 디렉토리에 수정사항 발생
-            시 해당 도메인만 배포되도록 GitHub Workflows를 이용하여 배포 자동화
+            시 해당 도메인만 배포되도록 GitHub Actions 이용하여 배포 자동화
             프로세스 개선
           </DiscLi>
           <DiscLi>
