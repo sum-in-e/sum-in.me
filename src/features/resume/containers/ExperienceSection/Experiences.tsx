@@ -16,18 +16,21 @@ const BreakAndCompanyDetail = () => {
         <ul className="mt-2">
           <DiscLi>
             유저간 트레이딩 카드 거래를 중개하는 플랫폼의 신규 개발
-          </DiscLi>
-          <DiscLi>
-            메인 페이지 / 판매자별 등록 상품 확인 페이지 / 장바구니 / 주문 내역
-            페이지 개발을 담당
             <ul className="mt-1">
               <DiscLi>
-                React Query의 useInfiniteQuery와 IntersectionObserver를 활용한
-                무한 스크롤 구현
-              </DiscLi>
-              <DiscLi>
-                UI를 최소 단위로 나누어 컴포넌트화하고 해당 컴포넌트를 조립해 큰
-                컴포넌트를 만드는 방식으로 재사용성을 높이고자 하였습니다.
+                메인 페이지 / 판매자별 등록 상품 확인 페이지 / 장바구니 / 주문
+                내역 페이지 개발 담당
+                {/* <ul className="mt-1">
+                  <DiscLi>
+                    React Query의 useInfiniteQuery와 IntersectionObserver를
+                    활용한 무한 스크롤 구현
+                  </DiscLi>
+                  <DiscLi>
+                    UI를 최소 단위로 나누어 컴포넌트화하고 해당 컴포넌트를
+                    조립해 큰 컴포넌트를 만드는 방식으로 재사용성을 높이고자
+                    하였습니다.
+                  </DiscLi>
+                </ul> */}
               </DiscLi>
             </ul>
           </DiscLi>
@@ -37,9 +40,9 @@ const BreakAndCompanyDetail = () => {
         <span className="text-xl font-bold">brg</span>
         <ul className="mt-2">
           <DiscLi>
-            언어별로 도메인이 나눠진 프로젝트들을 모노레포로 관리하였는데, 특정
-            디렉토리에 수정사항 발생 시 해당 도메인만 수정사항이 반영되어
-            배포되도록 CI/CD 배포 자동화 프로세스 개선 진행
+            vercel을 통해 호스팅하는 모노레포에서 특정 디렉토리에 수정사항 발생
+            시 해당 도메인만 배포되도록 GitHub Workflows를 이용하여 배포 자동화
+            프로세스 개선
           </DiscLi>
           <DiscLi>
             <Link
@@ -52,8 +55,8 @@ const BreakAndCompanyDetail = () => {
             의 어드민 기획 및 개발 담당
             <ul className="mt-1">
               <DiscLi>
-                brg 대만 서비스를 통해 들어오는 주문의 입/출고를 자사 어드민에서
-                관리할 수 있도록 운영팀과 직접 커뮤니케이션하며 기획 진행
+                대만 주문의 입/출고를 자사 어드민에서 관리하고 프로세스를 진행할
+                수 있도록 운영팀과 직접 커뮤니케이션하며 기획 진행
               </DiscLi>
               <DiscLi>
                 직접 진행한 기획을 바탕으로 프론트엔드 파트 작업의 약 70% 기여
@@ -89,17 +92,7 @@ const BreakAndCompanyDetail = () => {
 const GuardianDetail = () => {
   return (
     <ul>
-      <DiscLi>
-        웹 가상 자산 거래소
-        <Link
-          href="https://oasisexc.com/"
-          target="_blank"
-          className="hyperlink mx-1"
-        >
-          Oasis 서비스
-        </Link>
-        유지보수
-      </DiscLi>
+      <DiscLi>웹 가상 자산 거래소 Oasis 서비스 유지보수</DiscLi>
     </ul>
   );
 };
