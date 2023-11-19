@@ -7,7 +7,7 @@ import queryKeys from '@/src/common/modules/queryKeys';
 export type PostItem = Pick<
   Post,
   'id' | 'title' | 'description' | 'created_at'
->;
+> & { tags: string[] };
 
 export type GetPostsParams = {
   type: PostType;

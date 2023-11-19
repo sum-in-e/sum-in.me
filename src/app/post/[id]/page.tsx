@@ -115,7 +115,6 @@ export default async function PostDetailPage({ params }: PageProps) {
 
   if (!post[0].is_public && !user) {
     // 비공개 글인데 방문자가 확인하는 경우
-
     return (
       <div className="w-full flex justify-center items-center px-5 py-10 mb-10 bg-zinc-100 dark:bg-opacity-10 rounded-md">
         <h3 className="text-lg text-zinc-800 dark:text-zinc-200">

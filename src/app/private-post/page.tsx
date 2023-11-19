@@ -32,13 +32,7 @@ export default async function PrivatePostsPage() {
   return (
     <ul className="flex flex-col gap-10">
       {data.map((item) => (
-        <PostItem
-          id={item.id}
-          key={item.id}
-          title={item.title}
-          description={item.description}
-          created_at={item.created_at}
-        />
+        <PostItem key={item.id} {...item} />
       ))}
     </ul>
   );

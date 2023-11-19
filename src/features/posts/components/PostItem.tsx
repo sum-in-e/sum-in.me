@@ -8,9 +8,10 @@ interface Props {
   title: string;
   description: string;
   created_at: string;
+  tags?: string[];
 }
 
-const PostItem = ({ id, title, description, created_at }: Props) => {
+const PostItem = ({ id, title, description, created_at, tags }: Props) => {
   const router = useRouter();
   const createdAt = dayjs(created_at).format('YYYY-MM-DD');
 
@@ -26,6 +27,18 @@ const PostItem = ({ id, title, description, created_at }: Props) => {
           {title}
         </h3>
         <p className="text-zinc-400 truncate ">{description}</p>
+        {tags && tags.length > 0 && (
+          <ul className="mt-2 flex gap-2 flex-wrap">
+            {tags.map((tag, index) => (
+              <li
+                key={`${index}_${tag}`}
+                className="text-xs rounded-full text-white bg-zinc-700 py-[2px] w-fit px-2"
+              >
+                {tag}
+              </li>
+            ))}
+          </ul>
+        )}
         <p className="mt-2 text-sm text-zinc-400">{createdAt}</p>
       </div>
     </li>

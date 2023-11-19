@@ -34,7 +34,7 @@ const BreakAndCompanyDetail = () => {
         <ul className="mt-2">
           <DiscLi>
             vercel을 통해 호스팅하는 모노레포에서 특정 디렉토리에 수정사항 발생
-            시 해당 도메인만 배포되도록 GitHub Actions 이용하여 배포 자동화
+            시 해당 도메인만 배포되도록 GitHub Actions를 이용하여 배포 자동화
             프로세스 개선
           </DiscLi>
           <DiscLi>

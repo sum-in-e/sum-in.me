@@ -38,13 +38,7 @@ export default async function HomePage() {
             </div>
             <ul className="flex flex-col gap-9">
               {blogPosts?.map((post) => (
-                <PostItem
-                  key={post.id}
-                  id={post.id}
-                  title={post.title}
-                  description={post.description}
-                  created_at={post.created_at}
-                />
+                <PostItem key={post.id} {...post} />
               ))}
             </ul>
           </div>
@@ -55,13 +49,7 @@ export default async function HomePage() {
             </div>
             <ul className="flex flex-col gap-9">
               {notes?.map((post) => (
-                <PostItem
-                  key={post.id}
-                  id={post.id}
-                  title={post.title}
-                  description={post.description}
-                  created_at={post.created_at}
-                />
+                <PostItem key={post.id} {...post} />
               ))}
             </ul>
           </div>

@@ -86,12 +86,14 @@ export interface Database {
           {
             foreignKeyName: 'post-tag_post_id_fkey';
             columns: ['post_id'];
+            isOneToOne: false;
             referencedRelation: 'post';
             referencedColumns: ['id'];
           },
           {
             foreignKeyName: 'post-tag_tag_id_fkey';
             columns: ['tag_id'];
+            isOneToOne: false;
             referencedRelation: 'tag';
             referencedColumns: ['id'];
           }
@@ -128,6 +130,7 @@ export interface Database {
           title: string;
           description: string;
           created_at: string;
+          tags: string[];
         }[];
       };
       get_tags_and_post_counts: {
