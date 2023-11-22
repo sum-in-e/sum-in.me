@@ -3,8 +3,13 @@ import ExperienceSection from '@/src/features/resume/containers/ExperienceSectio
 import IntroduceSection from '@/src/features/resume/containers/IntroduceSection';
 import ProjectSection from '@/src/features/resume/containers/ProjectSection';
 import SkillSection from '@/src/features/resume/containers/SkillSection';
+import { redirect } from 'next/navigation';
 
 export default function GuestBookPage() {
+  redirect(
+    'https://drive.google.com/file/d/18a998ErVRuAb4TaGAIhxjPX0uYTEEd1O/view?usp=drive_link'
+  );
+
   return (
     <article className="w-full text-zinc-900 dark:text-zinc-100">
       <header className="mb-2">
