@@ -7,7 +7,7 @@ import { redirect } from 'next/navigation';
 
 export default function GuestBookPage() {
   redirect(
-    'https://drive.google.com/file/d/1Oi_PZL0Fwtkt437nHaL8NEXCYnRPbZ2_/view?usp=sharing'
+    'https://drive.google.com/file/d/1EeYRqXvIQgaqfGEV-opqeYw5mjXcz8_g/view?usp=sharing'
   );
 
   return (
