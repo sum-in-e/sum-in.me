@@ -41,7 +41,7 @@ const ProjectSection = () => {
         </li>
         <li>
           <Link
-            href="https://linkloud.xyz"
+            href="https://linkloud-client.vercel.app/"
             target="_blank"
             className="font-bold text-2xl hyperlink"
           >

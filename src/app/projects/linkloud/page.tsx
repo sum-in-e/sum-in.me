@@ -15,7 +15,7 @@ export default async function ProjectLinkloudPage() {
       />
       <div className="flex justify-end">
         <Link
-          href="https://linkloud.xyz"
+          href="https://linkloud-client.vercel.app/"
           target="_blank"
           className="rounded-md group flex items-center"
         >

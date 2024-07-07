@@ -24,7 +24,7 @@ const projects = [
     name: 'Linkloud',
     description:
       '나중에 볼 링크를 간편하게 저장하고 관리할 수 있도록 도와주는 서비스',
-    url: 'https://linkloud.xyz',
+    url: 'https://linkloud-client.vercel.app/',
     src: '/images/projects/linkloud/logo.png',
     alt: 'Linkloud logo',
     path: '/projects/linkloud',
