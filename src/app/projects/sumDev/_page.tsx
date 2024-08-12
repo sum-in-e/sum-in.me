@@ -15,7 +15,7 @@ export default async function ProjectSumDevPage() {
       />
       <div className="flex justify-end">
         <Link
-          href="https://dev.sum-in.me"
+          href="https://sum-in.me"
           target="_blank"
           className="rounded-md group flex items-center"
         >
@@ -86,11 +86,11 @@ export const metadata = {
   title,
   description,
   keywords: 'sumDev, sum-in.me',
-  metadataBase: new URL('https://dev.sum-in.me/projects/sumDev'),
+  metadataBase: new URL('https://sum-in.me/projects/sumDev'),
   openGraph: {
     title,
     description,
-    url: 'https://dev.sum-in.me/projects/sumDev',
+    url: 'https://sum-in.me/projects/sumDev',
     type: 'website',
     images: [
       {

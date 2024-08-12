@@ -35,7 +35,7 @@ const projects = [
     id: 1,
     name: 'sumDev',
     description: '개인 웹사이트',
-    url: 'https://dev.sum-in.me',
+    url: 'https://sum-in.me',
     src: '/images/projects/sumDev/logo.png',
     alt: 'sumDev logo',
     path: '/projects/sumDev',

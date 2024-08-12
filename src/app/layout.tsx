@@ -55,14 +55,14 @@ export const metadata = {
   title,
   description,
   keywords: 'sumDev, sum-in.me',
-  metadataBase: new URL('https://dev.sum-in.me/'),
+  metadataBase: new URL('https://sum-in.me/'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     title,
     description,
-    url: 'https://dev.sum-in.me/',
+    url: 'https://sum-in.me/',
     type: 'website',
     images: [
       {

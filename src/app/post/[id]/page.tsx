@@ -42,11 +42,11 @@ export async function generateMetadata({
   return {
     title,
     description,
-    metadataBase: new URL(`https://dev.sum-in.me/post/${id}`),
+    metadataBase: new URL(`https://sum-in.me/post/${id}`),
     openGraph: {
       title,
       description,
-      url: `https://dev.sum-in.me/post/${id}`,
+      url: `https://sum-in.me/post/${id}`,
       type: 'website',
       images: [
         {

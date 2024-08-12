@@ -1,5 +1,5 @@
-# **Dev.Sum-in.me**
+# **sumDev**
 
-개발 블로그 / 노트 / 프로젝트 전시 공간
+개발 블로그 / 노트
 
-> Explore https://dev.sum-in.me
+> Explore https://sum-in.me
