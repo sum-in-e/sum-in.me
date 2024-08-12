@@ -9,6 +9,7 @@ import ThemeProviders from '@/src/common/containers/ThemeProviders';
 import { ReactNode } from 'react';
 import GoogleAnalytics from '@/src/common/containers/GoogleAnalytics';
 import QueryProvider from '@/src/common/containers/QueryProvider';
+import GoogleAds from '@/src/common/containers/GoogleAds';
 
 export const dynamic = 'force-dynamic';
 
@@ -26,7 +27,12 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      {isProduction && <GoogleAnalytics />}
+      {isProduction && (
+        <>
+          <GoogleAnalytics />
+          <GoogleAds />
+        </>
+      )}
       <body className="bg-white dark:bg-zinc-900">
         <QueryProvider>
           <ThemeProviders>
