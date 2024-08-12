@@ -26,11 +26,6 @@ const Header = ({ user }: Props) => {
     { path: '/blog', name: 'Blog', isActive: pathname === '/blog' },
     { path: '/note', name: 'Note', isActive: pathname === '/note' },
     {
-      path: '/projects',
-      name: 'Projects',
-      isActive: pathname.includes('/projects'),
-    },
-    {
       path: '/guestbook',
       name: 'GuestBook',
       isActive: pathname === '/guestbook',
