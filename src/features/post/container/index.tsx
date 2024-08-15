@@ -74,9 +74,10 @@ const Post = ({ user, initPost }: { user: User | null; initPost?: Post }) => {
 
   useEffect(() => {
     const handleBeforeUnload = (event: BeforeUnloadEvent) => {
-      event.preventDefault();
-      event.returnValue =
-        '변경사항이 저장되지 않았습니다. 페이지를 벗어나시겠습니까?';
+      event.preventDefault(); // 표준
+
+      // 모던 브라우저를 위한 권장 방식
+      return '변경사항이 저장되지 않았습니다. 페이지를 벗어나시겠습니까?';
     };
 
     isAdmin && window.addEventListener('beforeunload', handleBeforeUnload);

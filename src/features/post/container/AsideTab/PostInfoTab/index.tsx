@@ -67,6 +67,7 @@ const PostInfoTab = ({ editor, initPost }: Props) => {
           content: html,
           is_public: isPublic,
           type: postType,
+          updated_at: new Date().toISOString(),
         },
       ])
       .select();
