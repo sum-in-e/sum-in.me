@@ -31,11 +31,13 @@ export default async function PrivatePostsPage() {
 
   return (
     <section className="w-full">
-      <ul className="flex flex-col gap-10">
-        {data.map((item) => (
-          <PostItem key={item.id} {...item} />
-        ))}
-      </ul>
+      <div className="flex flex-col gap-10">
+        <ul className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {data.map((item) => (
+            <PostItem key={item.id} {...item} />
+          ))}
+        </ul>
+      </div>
     </section>
   );
 }

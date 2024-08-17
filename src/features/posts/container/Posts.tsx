@@ -35,15 +35,19 @@ const Posts = ({ type }: Props) => {
   }
 
   return (
-    <ul className="flex flex-col gap-10">
+    <div className="flex flex-col gap-10">
       {data && data?.length > 0 ? (
-        data.map((item) => <PostItem key={item.id} {...item} />)
+        <ul className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {data.map((item) => (
+            <PostItem key={item.id} {...item} />
+          ))}
+        </ul>
       ) : (
         <div className="w-full flex justify-center items-center px-5 py-10 bg-zinc-100 dark:bg-opacity-10 rounded-md">
           <p className="text-lg">조건에 해당하는 게시글이 없습니다.</p>
         </div>
       )}
-    </ul>
+    </div>
   );
 };
 

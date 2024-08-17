@@ -5,11 +5,11 @@ import { Editor } from '@tiptap/react';
 import { BsFillPaletteFill, BsFillPencilFill } from 'react-icons/bs';
 import EditorStylingTab from '@/src/features/post/container/AsideTab/EditorStylingTab';
 import PostInfoTab from '@/src/features/post/container/AsideTab/PostInfoTab';
-import { Post } from '@/src/common/modules/types/postType';
+import { Tables } from '@/database.types';
 
 interface Props {
   editor: Editor;
-  initPost?: Post;
+  initPost?: Tables<'post'>;
 }
 
 const AsideTab = ({ editor, initPost }: Props) => {

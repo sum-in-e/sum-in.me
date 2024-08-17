@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { useEditor, EditorContent } from '@tiptap/react';
+import { EditorContent, useEditor } from '@tiptap/react';
 import Placeholder from '@tiptap/extension-placeholder';
 import StarterKit from '@tiptap/starter-kit';
 import { Color } from '@tiptap/extension-color';
@@ -25,8 +25,8 @@ import bash from 'highlight.js/lib/languages/bash';
 import TitleArea from '@/src/features/post/container/TitleArea';
 import AsideTab from '@/src/features/post/container/AsideTab';
 import { User } from '@supabase/supabase-js';
-import { Post } from '@/src/common/modules/types/postType';
 import dayjs from 'dayjs';
+import { Tables } from '@/database.types';
 
 const lowlight = createLowlight();
 
@@ -37,7 +37,13 @@ lowlight.register({ ts });
 lowlight.register({ sql });
 lowlight.register({ bash });
 
-const Post = ({ user, initPost }: { user: User | null; initPost?: Post }) => {
+const Post = ({
+  user,
+  initPost,
+}: {
+  user: User | null;
+  initPost?: Tables<'post'>;
+}) => {
   const editorContent = initPost?.content || ``;
   const isAdmin = user !== null;
 

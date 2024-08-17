@@ -1,12 +1,12 @@
-import { Database } from '@/database.types';
+import { Database, Tables } from '@/database.types';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
-import { Post, PostType } from '@/src/common/modules/types/postType';
+import { PostType } from '@/src/common/modules/types/postType';
 import { useQuery } from '@tanstack/react-query';
 import queryKeys from '@/src/common/modules/queryKeys';
 
 export type PostItem = Pick<
-  Post,
-  'id' | 'title' | 'description' | 'created_at'
+  Tables<'post'>,
+  'id' | 'title' | 'description' | 'created_at' | 'cover'
 >;
 
 export type GetPostsParams = {
@@ -21,7 +21,7 @@ async function getPosts(params: GetPostsParams): Promise<PostItem[]> {
 
   const { type, tagId, year } = params;
 
-  let { data, error } = await supabase.rpc('fetch_posts', {
+  let { data, error } = await supabase.rpc('fetch_posts_with_tags', {
     post_type_value: type,
     tag_id_value: tagId,
     year_value: year,

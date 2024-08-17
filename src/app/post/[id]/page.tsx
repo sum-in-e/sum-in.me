@@ -88,7 +88,7 @@ export default async function PostDetailPage({ params }: PageProps) {
       .select('*')
       .eq('is_public', true)
       .order('created_at', { ascending: false })
-      .limit(5);
+      .limit(2);
 
     return (
       <div className="w-full">
@@ -102,11 +102,13 @@ export default async function PostDetailPage({ params }: PageProps) {
             <h4 className="text-xl font-semibold mb-8">
               이런 글은 어떠세요?👀
             </h4>
-            <ul className="flex flex-col gap-10">
-              {suggestedPosts?.map((post) => (
-                <PostItem key={post.id} {...post} />
-              ))}
-            </ul>
+            <div className="flex flex-col gap-10">
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {suggestedPosts?.map((post) => (
+                  <PostItem key={post.id} {...post} />
+                ))}
+              </ul>
+            </div>
           </>
         )}
       </div>

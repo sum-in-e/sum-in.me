@@ -4,14 +4,14 @@ import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { Editor } from '@tiptap/react';
-import { Database } from '@/database.types';
-import { Post, PostType } from '@/src/common/modules/types/postType';
+import { Database, Tables } from '@/database.types';
+import { PostType } from '@/src/common/modules/types/postType';
 import { useTitleState } from '@/src/features/post/modules/postStore';
 import TagArea from '@/src/features/post/container/AsideTab/PostInfoTab/Tags';
 
 interface Props {
   editor: Editor;
-  initPost?: Post;
+  initPost?: Tables<'post'>;
 }
 
 const PostInfoTab = ({ editor, initPost }: Props) => {
@@ -178,7 +178,7 @@ const PostInfoTab = ({ editor, initPost }: Props) => {
   };
 
   const getInitTagIds = useCallback(
-    async (init: Post) => {
+    async (init: Tables<'post'>) => {
       let { data } = await supabase
         .from('post-tag')
         .select('tag_id')
