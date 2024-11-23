@@ -26,40 +26,44 @@ export default async function HomePage() {
     .range(0, 3);
 
   return (
-    <div className="w-full flex flex-col items-center gap-16">
+    <div className="flex w-full flex-col items-center gap-16">
       <section className="w-full">
-        <p className="text-3xl font-bold mb-10 dark:text-white">Writing</p>
-        <div className="grid grid-rows-1 md:grid-rows-2 gap-16 md:gap-24">
+        <p className="mb-10 text-3xl font-bold dark:text-white">Writing</p>
+        <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-24">
           <div className="flex-grow">
-            <p className="text-lg text-black dark:text-white font-semibold">
+            <p className="text-lg font-semibold text-black dark:text-white">
               Recent Posts
             </p>
-            <div className="flex justify-end mb-7">
+            <div className="mb-7 flex justify-end">
               <ReadMoreButton path="/blog" />
             </div>
-            <div className="flex flex-col gap-9">
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {blogPosts?.map((post) => (
-                  <PostItem key={post.id} {...post} />
-                ))}
-              </ul>
-            </div>
+            {blogPosts && (
+              <div className="flex flex-col gap-9">
+                <ul className="flex flex-col gap-4">
+                  {blogPosts.map((post) => (
+                    <PostItem key={post.id} {...post} />
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
+
           <div className="flex-grow">
-            <p className="text-lg text-black dark:text-white font-semibold">
+            <p className="text-lg font-semibold text-black dark:text-white">
               Recent Notes
             </p>
-            <div className="flex justify-end mb-7">
+            <div className="mb-7 flex justify-end">
               <ReadMoreButton path="/note" />
             </div>
-
-            <div className="flex flex-col gap-9">
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {notes?.map((post) => (
-                  <PostItem key={post.id} {...post} />
-                ))}
-              </ul>
-            </div>
+            {notes && (
+              <div className="flex flex-col gap-9">
+                <ul className="flex flex-col gap-4">
+                  {notes.map((post) => (
+                    <PostItem key={post.id} {...post} />
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         </div>
       </section>

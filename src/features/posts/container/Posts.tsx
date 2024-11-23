@@ -37,7 +37,7 @@ const Posts = ({ type }: Props) => {
   return (
     <div className="flex flex-col gap-10">
       {data && data?.length > 0 ? (
-        <ul className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <ul className="flex flex-col gap-8">
           {data.map((item) => (
             <PostItem key={item.id} {...item} />
           ))}

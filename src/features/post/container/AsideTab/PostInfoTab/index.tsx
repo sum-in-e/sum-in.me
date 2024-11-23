@@ -216,7 +216,7 @@ const PostInfoTab = ({ editor, initPost }: Props) => {
       <div className="flex flex-col gap-2">
         <p className="text-xs text-zinc-400">Description</p>
         <input
-          className="bg-inherit border-b border-zinc-700 reset-input text-black"
+          className="reset-input border-b border-zinc-700 bg-inherit text-black"
           placeholder="Description"
           value={description}
           onChange={handleChangeDescription}
@@ -263,7 +263,7 @@ const PostInfoTab = ({ editor, initPost }: Props) => {
       <button
         onClick={handlePost}
         disabled={description === ''}
-        className="reset-button w-full px-4 py-2 rounded-md bg-accent md:hover:bg-opacity-70 text-sm"
+        className="reset-button w-full rounded-md bg-accent px-4 py-2 text-sm md:hover:bg-opacity-70"
       >
         Publish
       </button>
@@ -283,8 +283,8 @@ const Button = ({ onClick, isActive, text }: ButtonProps) => {
   return (
     <button
       onClick={onClick}
-      className={`text-sm p-2 rounded-md flex-grow md:hover:bg-opacity-70 ${
-        isActive ? 'bg-zinc-900 text-white' : 'text-zinc-700 bg-gray-100'
+      className={`flex-grow rounded-md p-2 text-sm md:hover:bg-opacity-70 ${
+        isActive ? 'bg-zinc-900 text-white' : 'bg-gray-100 text-zinc-700'
       }`}
     >
       {text}

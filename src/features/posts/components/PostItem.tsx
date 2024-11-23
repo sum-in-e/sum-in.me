@@ -2,48 +2,45 @@
 
 import { useRouter } from 'next/navigation';
 import dayjs from 'dayjs';
-import Image from 'next/image';
-import { useState } from 'react';
+import { IPostItem } from '@/src/features/posts/modules/hooks/api/useGetPostsQuery';
+import { Badge } from '@/src/common/components/ui/badge';
 
-interface Props {
-  id: number;
-  title: string;
-  description: string;
-  created_at: string;
-  cover: string;
+interface Props
+  extends Pick<IPostItem, 'id' | 'title' | 'description' | 'created_at'> {
+  tags?: IPostItem['tags'];
 }
 
-const PostItem = ({ id, title, description, created_at, cover }: Props) => {
+const PostItem = ({ id, title, description, created_at, tags }: Props) => {
   const router = useRouter();
   const createdAt = dayjs(created_at).format('YYYY-MM-DD');
-  const [imageSrc, setImageSrc] = useState(cover);
 
   const handleClick = async () => {
     router.push(`/post/${id}`);
   };
 
-  const handleImageError = () => {
-    setImageSrc(
-      'https://res.cloudinary.com/duinj0dld/image/upload/v1695111909/dev.sum-in.me/sumDev-cover.webp'
-    );
-  };
-
   return (
-    <li onClick={handleClick} className="relative group cursor-pointer">
-      <div className="hidden md:block absolute -inset-y-5 -inset-x-3 z-0 scale-95 bg-zinc-100 dark:bg-zinc-800  opacity-0 transition group-hover:scale-100 group-hover:opacity-50 rounded-lg duration-300" />
+    <li
+      onClick={handleClick}
+      className="group relative cursor-pointer rounded-lg border-2 border-transparent p-2 hover:border-2 hover:border-dashed hover:border-black"
+    >
       <div className="relative z-10">
-        <Image
-          src={imageSrc}
-          width={300}
-          height={157}
-          alt={title}
-          className="h-full w-full object-cover"
-          onError={handleImageError}
-        />
-        <h3 className="text-lg font-medium truncate dark:text-zinc-100 mt-5">
+        {tags && (
+          <div className="mb-1 flex gap-1">
+            {tags.map((tag, index) => (
+              <Badge
+                key={`${tag}_${index}`}
+                variant="outline"
+                className="font-light"
+              >
+                {tag}
+              </Badge>
+            ))}
+          </div>
+        )}
+        <h3 className="truncate text-lg font-medium dark:text-zinc-100">
           {title}
         </h3>
-        <p className="text-zinc-400 truncate ">{description}</p>
+        <p className="truncate text-zinc-400">{description}</p>
         <p className="mt-2 text-sm text-zinc-400">{createdAt}</p>
       </div>
     </li>

@@ -16,7 +16,7 @@ const AsideTab = ({ editor, initPost }: Props) => {
   const [activeTab, setActiveTab] = useState('info');
 
   return (
-    <div className="fixed rounded-lg top-25 right-5 w-[280px] min-h-[600px] shadow-xl bg-gray-200 text-white z-10">
+    <div className="top-25 fixed right-5 z-10 min-h-[600px] w-[280px] rounded-lg bg-gray-200 text-white shadow-xl">
       <div className="flex">
         {/* Tabs */}
         <Tab
@@ -57,7 +57,7 @@ interface TapProps {
 const Tab = ({ onClick, isActive, children }: TapProps) => {
   return (
     <button
-      className={`flex items-center justify-center py-4 flex-grow px-4 border-b-2 ${
+      className={`flex flex-grow items-center justify-center border-b-2 px-4 py-4 ${
         isActive ? 'border-zinc-700' : 'border-transparent'
       }`}
       onClick={onClick}

@@ -27,6 +27,7 @@ import AsideTab from '@/src/features/post/container/AsideTab';
 import { User } from '@supabase/supabase-js';
 import dayjs from 'dayjs';
 import { Tables } from '@/database.types';
+import TagsContainer from '@/src/features/post/container/TagsContainer';
 
 const lowlight = createLowlight();
 
@@ -96,13 +97,15 @@ const Post = ({
     return null;
   }
   // TODO: 저장중에는 publish 못 하도록 수정
+  console.log(initPost);
   return (
     <>
-      <section className="w-full pb-10 md:py-10 flex flex-col gap-5">
+      <section className="flex w-full flex-col gap-5 pb-10 md:py-10">
         <div>
           <TitleArea isAdmin={isAdmin} initTitle={initPost?.title} />
+          <TagsContainer postId={initPost.id} />
           {initPost && (
-            <p className="text-zinc-400 text-sm">
+            <p className="text-sm text-zinc-400">
               {dayjs(initPost.created_at).format('YYYY-MM-DD')}
             </p>
           )}
