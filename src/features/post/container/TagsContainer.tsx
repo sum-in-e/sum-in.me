@@ -26,7 +26,7 @@ const TagsContainer = ({ postId }: TagsContainerProps) => {
           .select(
             `
             tag_id,
-            tag!inner (
+            tag (
               name
             )
           `
@@ -38,7 +38,11 @@ const TagsContainer = ({ postId }: TagsContainerProps) => {
         }
 
         if (tagData) {
-          const tagNames = tagData.map((item) => item.tag.name);
+          const tagNames = tagData
+            .map((item) => item.tag?.name)
+            .filter(
+              (name): name is string => name !== null && name !== undefined
+            );
           setTags(tagNames);
         }
       } catch (err) {
