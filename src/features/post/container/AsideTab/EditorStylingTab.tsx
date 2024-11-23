@@ -238,7 +238,7 @@ const EditorStylingTab = ({ editor }: Props) => {
           <button
             onClick={() => editor.chain().focus().unsetHighlight().run()}
             disabled={!editor.isActive('highlight')}
-            className="bg-gray-300 rounded-full w-6 h-6 flex justify-center items-center cursor-pointer md:hover:opacity-70"
+            className="flex h-6 w-6 cursor-pointer items-center justify-center rounded-full bg-gray-300 md:hover:opacity-70"
           >
             <BsSlashLg size={16} />
           </button>
@@ -248,13 +248,13 @@ const EditorStylingTab = ({ editor }: Props) => {
       {/* Text Color */}
       <div className="flex flex-col gap-2">
         <p className="text-xs text-zinc-400">Text Color</p>
-        <div className="flex gap-3 flex-wrap">
+        <div className="flex flex-wrap gap-3">
           {TEXT_COLORS.map((color, index) => (
             <TextColorButton key={index} editor={editor} color={color} />
           ))}
           <button
             onClick={() => editor.chain().focus().unsetColor().run()}
-            className="bg-gray-300 rounded-full w-6 h-6 flex justify-center items-center cursor-pointer md:hover:opacity-70"
+            className="flex h-6 w-6 cursor-pointer items-center justify-center rounded-full bg-gray-300 md:hover:opacity-70"
           >
             <BsSlashLg size={16} />
           </button>
@@ -280,7 +280,7 @@ const BasicButton = ({
   return (
     <button
       onClick={onClick}
-      className={`${isActiveClass} flex justify-center items-center md:hover:bg-opacity-70 flex-grow bg-gray-100 p-2 rounded-md w-full cursor-pointer  ${
+      className={`${isActiveClass} flex w-full flex-grow cursor-pointer items-center justify-center rounded-md bg-gray-100 p-2 md:hover:bg-opacity-70 ${
         disabled ? 'cursor-not-allowed' : ''
       }`}
       disabled={disabled}
@@ -302,7 +302,7 @@ const HighLightButton = ({
       onClick={() => editor.chain().focus().toggleHighlight({ color }).run()}
       className={`${
         editor.isActive('highlight', { color }) ? 'is-active' : ''
-      } rounded-full overflow-hidden w-6 h-6 cursor-pointer md:hover:opacity-70`}
+      } h-6 w-6 cursor-pointer overflow-hidden rounded-full md:hover:opacity-70`}
       style={{ backgroundColor: color }}
     />
   );
@@ -320,7 +320,7 @@ const TextColorButton = ({
       onClick={() => editor.chain().focus().setColor(color).run()}
       className={`${
         editor.isActive('textStyle', { color }) ? 'is-active' : ''
-      } rounded-full overflow-hidden w-6 h-6 cursor-pointer md:hover:opacity-70`}
+      } h-6 w-6 cursor-pointer overflow-hidden rounded-full md:hover:opacity-70`}
       style={{ backgroundColor: color }}
     />
   );
@@ -340,7 +340,7 @@ const HeadingButton = ({
       onClick={() => editor.chain().focus().toggleHeading({ level }).run()}
       className={`${
         editor.isActive('heading', { level }) ? 'is-active' : ''
-      } md:hover:bg-opacity-70 flex-grow bg-gray-100 flex justify-center items-center p-2 rounded-md w-fit cursor-pointer `}
+      } flex w-fit flex-grow cursor-pointer items-center justify-center rounded-md bg-gray-100 p-2 md:hover:bg-opacity-70`}
     >
       {children}
     </button>

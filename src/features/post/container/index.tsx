@@ -103,7 +103,7 @@ const Post = ({
       <section className="flex w-full flex-col gap-5 pb-10 md:py-10">
         <div>
           <TitleArea isAdmin={isAdmin} initTitle={initPost?.title} />
-          <TagsContainer postId={initPost.id} />
+          {initPost && <TagsContainer postId={initPost.id} />}
           {initPost && (
             <p className="text-sm text-zinc-400">
               {dayjs(initPost.created_at).format('YYYY-MM-DD')}
