@@ -5,6 +5,7 @@ import { EditorContent, useEditor } from '@tiptap/react';
 import Placeholder from '@tiptap/extension-placeholder';
 import StarterKit from '@tiptap/starter-kit';
 import { Color } from '@tiptap/extension-color';
+import Blockquote from '@tiptap/extension-blockquote';
 import TextAlign from '@tiptap/extension-text-align';
 import TextStyle from '@tiptap/extension-text-style';
 import Typography from '@tiptap/extension-typography';
@@ -56,6 +57,11 @@ const Post = ({
       Color,
       Image,
       Underline,
+      Blockquote.configure({
+        HTMLAttributes: {
+          class: 'blockquote',
+        },
+      }),
       TextAlign.configure({
         types: ['heading', 'paragraph'],
       }),
