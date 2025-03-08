@@ -1,8 +1,5 @@
 import './globals.css';
 
-import { cookies } from 'next/headers';
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
-import { Database } from '@/database.types';
 import Footer from '@/src/common/containers/layouts/Footer';
 import Header from '@/src/common/containers/layouts/Header';
 import ThemeProviders from '@/src/common/containers/ThemeProviders';
@@ -10,36 +7,38 @@ import { ReactNode } from 'react';
 import GoogleAnalytics from '@/src/common/containers/GoogleAnalytics';
 import QueryProvider from '@/src/common/containers/QueryProvider';
 import GoogleAds from '@/src/common/containers/GoogleAds';
+import { createClient } from '@/src/utils/supabase/server';
+import { cn } from '@/src/common/modules/utils/cn';
 
 export const dynamic = 'force-dynamic';
+
+const isProduction = process.env.NEXT_PUBLIC_MODE === 'production';
 
 export default async function RootLayout({
   children,
 }: {
   children: ReactNode;
 }) {
-  const supabase = createServerComponentClient<Database>({ cookies });
-  const isProduction = process.env.NEXT_PUBLIC_MODE === 'production';
-
+  const supabase = createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       {isProduction && (
         <>
           <GoogleAnalytics />
           <GoogleAds />
         </>
       )}
-      <body className="bg-white dark:bg-zinc-900">
+      <body className={cn('min-h-screen bg-background font-sans antialiased')}>
         <QueryProvider>
           <ThemeProviders>
             <Header user={user} />
-            <div className="min-h-screen flex flex-col justify-between gap-10">
+            <div className="flex min-h-screen flex-col justify-between gap-10">
               <main className="flex justify-center">
-                <div className="max-w-screen-md flex flex-col items-center px-4 py-4 w-full mt-20">
+                <div className="mt-20 flex w-full max-w-screen-md flex-col items-center px-4 py-4">
                   {children}
                 </div>
               </main>

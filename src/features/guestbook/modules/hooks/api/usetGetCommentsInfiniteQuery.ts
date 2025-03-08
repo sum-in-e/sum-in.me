@@ -1,12 +1,11 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
-import { Database } from '@/database.types';
 import queryKeys from '@/src/common/modules/queryKeys';
+import { createClient } from '@/src/utils/supabase/client';
 
 const PAGE_SIZE = 20;
 
 async function getComments({ pageParam = 0 }) {
-  const supabase = createClientComponentClient<Database>();
+  const supabase = createClient();
 
   const response = await supabase
     .from('guestbook')
@@ -22,7 +21,10 @@ async function getComments({ pageParam = 0 }) {
 }
 
 export function useGetCommentInfiniteQuery() {
-  return useInfiniteQuery(queryKeys.comment.getComments(), getComments, {
+  return useInfiniteQuery({
+    queryKey: queryKeys.comment.list(),
+    queryFn: getComments,
+    initialPageParam: 0,
     getNextPageParam: (lastPage, pages) => {
       if (lastPage.length < PAGE_SIZE) {
         return undefined;

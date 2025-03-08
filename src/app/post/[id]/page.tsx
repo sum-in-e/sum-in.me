@@ -1,10 +1,6 @@
-import { cookies } from 'next/headers';
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
-import { Database } from '@/database.types';
 import { Metadata } from 'next';
-import PostItem from '@/src/features/posts/components/PostItem';
-import Post from '@/src/features/post/container';
-import CommentsContainer from '@/src/features/post/container/CommentsContainer';
+import { createClient } from '@/src/utils/supabase/server';
+import PostDetailContainer from '@/src/features/post-detail/container/PostDetailContainer';
 
 export const dynamic = 'force-dynamic';
 
@@ -16,7 +12,7 @@ export async function generateMetadata({
   params: { id },
 }: PageProps): Promise<Metadata> {
   const getPost = async () => {
-    const supabase = createServerComponentClient<Database>({ cookies });
+    const supabase = createClient();
     let { data: post } = await supabase.from('post').select('*').eq('id', id);
 
     if (!post || post?.length === 0) {
@@ -70,66 +66,10 @@ export async function generateMetadata({
 }
 
 export default async function PostDetailPage({ params }: PageProps) {
-  const supabase = createServerComponentClient<Database>({ cookies });
-
+  const supabase = createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();
 
-  let { data: post } = await supabase
-    .from('post')
-    .select('*')
-    .eq('id', params.id);
-
-  if (!post || post.length === 0) {
-    // 게시글 존재하지 않는 경우 최신 게시글 5개 추천
-    let { data: suggestedPosts } = await supabase
-      .from('post')
-      .select('*')
-      .eq('is_public', true)
-      .order('created_at', { ascending: false })
-      .limit(2);
-
-    return (
-      <div className="w-full">
-        <div className="w-full flex justify-center items-center px-5 py-10 mb-10 bg-zinc-100 dark:bg-opacity-10 rounded-md">
-          <h3 className="text-lg text-zinc-800 dark:text-zinc-200">
-            존재하지 않는 게시글입니다.
-          </h3>
-        </div>
-        {suggestedPosts && suggestedPosts?.length > 0 && (
-          <>
-            <h4 className="text-xl font-semibold mb-8">
-              이런 글은 어떠세요?👀
-            </h4>
-            <div className="flex flex-col gap-10">
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {suggestedPosts?.map((post) => (
-                  <PostItem key={post.id} {...post} />
-                ))}
-              </ul>
-            </div>
-          </>
-        )}
-      </div>
-    );
-  }
-
-  if (!post[0].is_public && !user) {
-    // 비공개 글인데 방문자가 확인하는 경우
-    return (
-      <div className="w-full flex justify-center items-center px-5 py-10 mb-10 bg-zinc-100 dark:bg-opacity-10 rounded-md">
-        <h3 className="text-lg text-zinc-800 dark:text-zinc-200">
-          비공개 글입니다.
-        </h3>
-      </div>
-    );
-  }
-
-  return (
-    <>
-      <Post user={user} initPost={post[0]} />
-      <CommentsContainer />
-    </>
-  );
+  return <PostDetailContainer id={params.id} user={user} />;
 }

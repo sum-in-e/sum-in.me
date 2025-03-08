@@ -1,77 +1,41 @@
 'use client';
 
+import { useState } from 'react';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { Button } from '@/src/common/components/ui/button';
+import { createComment } from '../services/commentService';
 import queryKeys from '@/src/common/modules/queryKeys';
-import { usePostCommentMutation } from '@/src/features/guestbook/modules/hooks/api/usePostCommentMutation';
-import { useQueryClient } from '@tanstack/react-query';
-import { ChangeEvent, FormEvent, useState } from 'react';
-import { BsArrowRight } from 'react-icons/bs';
 
-const CommentForm = () => {
-  const queryClient = useQueryClient();
-  const { mutate: postComment, isLoading } = usePostCommentMutation();
-
+export default function CommentForm() {
   const [comment, setComment] = useState('');
-  const [message, setMessage] = useState('');
+  const queryClient = useQueryClient();
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (!isLoading && comment.length > 0) {
-      if (message.length > 0) {
-        setMessage('');
-      }
+  const { mutate, isPending } = useMutation({
+    mutationFn: createComment,
+    onSuccess: () => {
+      setComment('');
+      queryClient.invalidateQueries({ queryKey: queryKeys.comment.list() });
+    },
+  });
 
-      postComment(
-        { comment },
-        {
-          onSuccess: (data) => {
-            queryClient.invalidateQueries(queryKeys.comment.getComments());
-
-            setComment('');
-          },
-          onError: (error) => {
-            setMessage(
-              '오류로 인해 방명록을 추가하지 못했습니다. 다시 시도해 주세요.'
-            );
-          },
-        }
-      );
-    }
-  };
-
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-
-    if (message.length > 0) {
-      setMessage('');
-    }
-
-    setComment(value);
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!comment.trim() || isPending) return;
+    mutate(comment);
   };
 
   return (
-    <div>
-      <form
-        onSubmit={handleSubmit}
-        className="flex gap-2 text-sm items-center rounded-lg border border-zinc-200 dark:border-zinc-600 dark:bg-zinc-800 bg-zinc-100 p-3"
-      >
-        <input
-          id="comment"
-          onChange={handleChange}
-          className="w-full reset-input px-4 py-2 rounded-full dark:bg-zinc-700 bg-zinc-200"
-          placeholder="Add your comment"
-          value={comment}
-          required
-        />
-        <button
-          type="submit"
-          className="px-4 h-full py-[10px] flex items-center md:hover:bg-opacity-70 justify-center rounded-full bg-zinc-200 dark:bg-zinc-700"
-        >
-          <BsArrowRight className="w-4 h-4" />
-        </button>
-      </form>
-      <p className="text-xs text-red-500 mt-2 italic">{message}</p>
-    </div>
+    <form onSubmit={handleSubmit} className="flex gap-2">
+      <input
+        type="text"
+        value={comment}
+        onChange={(e) => setComment(e.target.value)}
+        placeholder="방명록을 남겨주세요"
+        className="flex-1 rounded-md border border-zinc-300 px-3 py-2 text-sm outline-none focus:border-zinc-500 dark:border-zinc-700 dark:bg-zinc-800 dark:focus:border-zinc-600"
+      />
+      <Button type="submit" disabled={isPending}>
+        {isPending ? '저장 중...' : '저장'}
+      </Button>
+    </form>
   );
-};
-
-export default CommentForm;
+}

@@ -1,13 +1,13 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
 import dayjs from 'dayjs';
-import { IPostItem } from '@/src/features/posts/modules/hooks/api/useGetPostsQuery';
+import { useRouter } from 'next/navigation';
 import { Badge } from '@/src/common/components/ui/badge';
+import { Post } from '@/src/common/modules/types/post';
+import { Tag } from '@/src/common/modules/types/tag';
 
-interface Props
-  extends Pick<IPostItem, 'id' | 'title' | 'description' | 'created_at'> {
-  tags?: IPostItem['tags'];
+interface Props extends Post {
+  tags?: Tag[];
 }
 
 const PostItem = ({ id, title, description, created_at, tags }: Props) => {
@@ -32,11 +32,12 @@ const PostItem = ({ id, title, description, created_at, tags }: Props) => {
                 variant="outline"
                 className="font-light"
               >
-                {tag}
+                {tag.name}
               </Badge>
             ))}
           </div>
         )}
+
         <h3 className="truncate text-lg font-medium dark:text-zinc-100">
           {title}
         </h3>

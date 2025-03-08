@@ -1,9 +1,8 @@
 'use client';
 
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { useEffect, useState } from 'react';
-import { Database } from '@/database.types';
 import { Tags } from '@/src/common/modules/types/tag';
+import { createClient } from '@/src/utils/supabase/client';
 
 interface Props {
   selectedTags: number[];
@@ -11,7 +10,7 @@ interface Props {
 }
 
 const TagArea = ({ selectedTags, onClick }: Props) => {
-  const supabase = createClientComponentClient<Database>();
+  const supabase = createClient();
 
   const [tags, setTags] = useState<Tags | null>(null);
   const [error, setError] = useState<string | null>(null);

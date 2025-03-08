@@ -5,7 +5,7 @@ import { Editor } from '@tiptap/react';
 import { BsFillPaletteFill, BsFillPencilFill } from 'react-icons/bs';
 import EditorStylingTab from '@/src/features/post/container/AsideTab/EditorStylingTab';
 import PostInfoTab from '@/src/features/post/container/AsideTab/PostInfoTab';
-import { Tables } from '@/database.types';
+import { Tables } from '@/src/types/supabase';
 
 interface Props {
   editor: Editor;

@@ -1,12 +1,12 @@
-import FilterContainer from '@/src/features/posts/container/FilterContiner';
-import Posts from '@/src/features/posts/container/Posts';
+import TagFiltersContainer from '@/src/features/posts/container/FilterContiner/Tags/TagFiltersContainer';
+import PostsContainer from '@/src/features/posts/container/PostsContainer';
 
 export default function BlogPage() {
   return (
     <section className="w-full">
-      <h2 className="text-4xl mb-10 font-bold dark:text-white">Blog</h2>
-      <FilterContainer type="blog" />
-      <Posts type="blog" />
+      <h2 className="mb-10 text-4xl font-bold dark:text-white">Blog</h2>
+      <TagFiltersContainer type="blog" />
+      <PostsContainer type="blog" />
     </section>
   );
 }

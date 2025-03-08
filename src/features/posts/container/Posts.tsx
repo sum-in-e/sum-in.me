@@ -1,54 +1,77 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
+import { useEffect, useRef } from 'react';
+import { useSuspenseInfiniteQuery } from '@tanstack/react-query';
 import { PostType } from '@/src/common/modules/types/postType';
 import PostItem from '@/src/features/posts/components/PostItem';
-import { useGetPostsQuery } from '@/src/features/posts/modules/hooks/api/useGetPostsQuery';
+import { getPosts } from '@/src/features/posts/services/postService';
+import queryKeys from '@/src/common/modules/queryKeys';
+import { PostsListSkeleton } from '@/src/features/posts/components/PostsListSkeleton';
 
-type Props = {
+interface Props {
   type: PostType;
-};
+}
 
-const Posts = ({ type }: Props) => {
+export default function Posts({ type }: Props) {
   const searchParams = useSearchParams();
+  const observerTarget = useRef<HTMLDivElement>(null);
 
   const tag = searchParams.get('tag');
-  const year = searchParams.get('year');
 
-  const { data, error, isLoading } = useGetPostsQuery({
-    type,
-    tagId: tag || undefined,
-    year: year || undefined,
-  });
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
+    useSuspenseInfiniteQuery({
+      queryKey: queryKeys.post.list(type, tag),
+      queryFn: ({ pageParam = 0 }) =>
+        getPosts({
+          type,
+          tagId: tag || undefined,
+          offset: pageParam,
+        }),
+      getNextPageParam: (lastPage, allPages) => {
+        const nextPage =
+          lastPage.length === 10 ? allPages.length * 10 : undefined;
+        return nextPage;
+      },
+      initialPageParam: 0,
+    });
 
-  if (isLoading) {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && hasNextPage) {
+          fetchNextPage();
+        }
+      },
+      { threshold: 1.0 }
+    );
+
+    if (observerTarget.current) {
+      observer.observe(observerTarget.current);
+    }
+
+    return () => observer.disconnect();
+  }, [fetchNextPage, hasNextPage]);
+
+  const posts = data.pages.flat();
+
+  if (posts.length === 0) {
     return (
-      <div className="flex flex-col gap-6">
-        {Array.from({ length: 3 }).map((_, index) => (
-          <div
-            key={index}
-            className="skeleton w-full flex justify-center items-center px-5 py-11 rounded-md"
-          />
-        ))}
+      <div className="flex w-full items-center justify-center rounded-md bg-zinc-100 px-5 py-10 dark:bg-opacity-10">
+        <p className="text-lg">조건에 해당하는 게시글이 없습니다.</p>
       </div>
     );
   }
 
   return (
     <div className="flex flex-col gap-10">
-      {data && data?.length > 0 ? (
-        <ul className="flex flex-col gap-8">
-          {data.map((item) => (
-            <PostItem key={item.id} {...item} />
-          ))}
-        </ul>
-      ) : (
-        <div className="w-full flex justify-center items-center px-5 py-10 bg-zinc-100 dark:bg-opacity-10 rounded-md">
-          <p className="text-lg">조건에 해당하는 게시글이 없습니다.</p>
-        </div>
-      )}
+      <ul className="flex flex-col gap-8">
+        {posts.map((item) => (
+          <PostItem key={item.id} {...item} />
+        ))}
+      </ul>
+      {isFetchingNextPage && <PostsListSkeleton count={2} />}
+      <div ref={observerTarget} className="h-4" />
     </div>
   );
-};
-
-export default Posts;
+}

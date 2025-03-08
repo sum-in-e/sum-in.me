@@ -1,44 +1,32 @@
 'use client';
 
+import { useSearchParams, useRouter } from 'next/navigation';
 import { PostType } from '@/src/common/modules/types/postType';
-import { useRouter, useSearchParams } from 'next/navigation';
-import * as querystring from 'querystring';
+import Tag from '@/src/features/posts/components/Tag';
 
-const StaticTagFilter = ({
-  postType,
-  filterType,
-}: {
-  postType: PostType;
+interface Props {
   filterType: '전체' | '미분류';
-}) => {
+  postType: PostType;
+}
+
+export default function StaticTagFilter({ filterType, postType }: Props) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const currentTagId = searchParams.get('tag');
-  const currentYear = searchParams.get('year');
+
+  const isSelected =
+    (filterType === '전체' && !currentTagId) ||
+    (filterType === '미분류' && currentTagId === 'uncategorized');
 
   const handleClick = () => {
-    const queryString = querystring.stringify({
-      tag: filterType === '전체' ? '' : 'uncategorized',
-      year: currentYear || '',
-    });
-
-    if (filterType === '전체' && currentTagId) {
-      router.push(`/${postType}?${queryString}`);
+    const params = new URLSearchParams();
+    if (filterType === '미분류') {
+      params.set('tag', 'uncategorized');
     }
-
-    if (filterType === '미분류' && currentTagId !== 'uncategorized') {
-      router.push(`/${postType}?${queryString}`);
-    }
+    router.push(`/${postType}?${params.toString()}`);
   };
 
   return (
-    <li
-      className="rounded-full flex items-center md:hover:bg-opacity-50 bg-gray-200 dark:bg-opacity-20 w-fit px-3 py-1 text-xs cursor-pointer"
-      onClick={handleClick}
-    >
-      {filterType}
-    </li>
+    <Tag label={filterType} isSelected={isSelected} onClick={handleClick} />
   );
-};
-
-export default StaticTagFilter;
+}

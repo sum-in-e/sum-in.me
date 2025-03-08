@@ -1,40 +1,34 @@
 'use client';
 
+import { useSearchParams, useRouter } from 'next/navigation';
 import { PostType } from '@/src/common/modules/types/postType';
-import { TagFilterItem } from '@/src/features/posts/modules/hooks/api/useGetTagsForPostFilteringQuery';
-import { useRouter, useSearchParams } from 'next/navigation';
-import * as querystring from 'querystring';
+import { Tag as TagType } from '@/src/features/posts/repositories/postRepository';
+import Tag from '@/src/features/posts/components/Tag';
 
-const DynamicTagFilter = ({
-  tag,
-  type,
-}: {
-  tag: TagFilterItem;
+interface Props {
+  tag: TagType;
   type: PostType;
-}) => {
+}
+
+export default function DynamicTagFilter({ tag, type }: Props) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const currentTagId = searchParams.get('tag');
-  const currentYear = searchParams.get('year');
+
+  const isSelected = currentTagId === String(tag.id);
 
   const handleClick = () => {
-    const queryString = querystring.stringify({
-      tag: tag.id,
-      year: currentYear || '',
-    });
-
-    if (Number(currentTagId) !== tag.id) router.push(`/${type}?${queryString}`);
+    const params = new URLSearchParams();
+    params.set('tag', String(tag.id));
+    router.push(`/${type}?${params.toString()}`);
   };
 
   return (
-    <li
-      className="rounded-full flex gap-3 items-center md:hover:bg-opacity-50 bg-gray-200 dark:bg-opacity-20 w-fit px-3 py-1 text-xs cursor-pointer"
+    <Tag
+      label={tag.name}
+      count={tag.posts}
+      isSelected={isSelected}
       onClick={handleClick}
-    >
-      <span>{tag.name}</span>
-      <span>{tag.posts}</span>
-    </li>
+    />
   );
-};
-
-export default DynamicTagFilter;
+}

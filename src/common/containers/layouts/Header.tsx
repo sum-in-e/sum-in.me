@@ -1,12 +1,12 @@
 'use client';
 
 import Link from 'next/link';
-import { User } from '@supabase/auth-helpers-nextjs';
 import { usePathname } from 'next/navigation';
 import { CgDarkMode } from 'react-icons/cg';
 import { useTheme } from 'next-themes';
 import LogoutButton from '@/src/features/auth/components/LogoutButton';
 import Menu from '@/src/common/components/header/MenuItem';
+import { User } from '@supabase/supabase-js';
 
 interface Props {
   user: User | null;
@@ -33,9 +33,9 @@ const Header = ({ user }: Props) => {
   ];
 
   return (
-    <header className="w-full flex justify-center bg-inherit z-20 fixed h-20 items-center">
-      <div className="max-w-screen-md w-full px-4">
-        <nav className="w-full flex justify-between">
+    <header className="fixed z-20 flex h-20 w-full items-center justify-center bg-inherit">
+      <div className="w-full max-w-screen-md px-4">
+        <nav className="flex w-full justify-between">
           <div className="flex items-center gap-4">
             {menus.map((menu) => (
               <Menu
@@ -48,22 +48,22 @@ const Header = ({ user }: Props) => {
           </div>
           <div className="flex gap-3">
             {user && (
-              <div className="hidden md:flex items-center gap-3">
+              <div className="hidden items-center gap-3 md:flex">
                 <Link
                   href="/post/new"
-                  className={`md:hover:underline dark:text-white`}
+                  className={`dark:text-white md:hover:underline`}
                 >
                   New
                 </Link>
                 <LogoutButton />
               </div>
             )}
-            <button
+            {/* <button
               onClick={() => setMode()}
-              className={`p-2 md:hover:bg-zinc-100 dark:md:hover:bg-opacity-10 rounded-lg`}
+              className={`rounded-lg p-2 md:hover:bg-zinc-100 dark:md:hover:bg-opacity-10`}
             >
               <CgDarkMode size={20} />
-            </button>
+            </button> */}
           </div>
         </nav>
       </div>
