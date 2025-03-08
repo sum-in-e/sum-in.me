@@ -22,7 +22,7 @@ export default function TagFilters({ type }: Props) {
       <p className="mb-3 text-sm font-medium text-zinc-800 dark:text-zinc-200">
         태그
       </p>
-      <ul className="scrollbar-hide flex gap-2 overflow-x-auto pb-2">
+      <ul className="flex flex-nowrap gap-2 overflow-x-auto pb-2 scrollbar-hide md:flex-wrap md:overflow-x-visible">
         <StaticTagFilter postType={type} filterType="전체" />
         {tags?.map((tag) => (
           <DynamicTagFilter key={tag.id} tag={tag} type={type} />

@@ -9,7 +9,7 @@ interface Props {
   postId: number;
 }
 
-export default function Tags({ postId }: Props) {
+export const Tags = ({ postId }: Props) => {
   const { data: tags } = useSuspenseQuery({
     queryKey: queryKeys.post.tags(postId),
     queryFn: () => getPostTags(postId),
@@ -28,4 +28,4 @@ export default function Tags({ postId }: Props) {
       ))}
     </div>
   );
-}
+};
