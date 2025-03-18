@@ -1,4 +1,5 @@
 import { PostType } from '@/src/common/modules/types/postType';
+import { Tag } from '@/src/common/modules/types/tag';
 
 export interface Post {
   id: number;
@@ -11,4 +12,5 @@ export interface Post {
   created_at: string;
   updated_at: string | null;
   deleted_at: string | null;
+  tags?: Tag[];
 }

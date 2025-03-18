@@ -71,13 +71,32 @@ export async function getPosts({
     query = query.in('id', postIdsArray);
   }
 
-  const { data, error } = await query.range(offset, offset + limit - 1);
+  const { data: posts, error } = await query.range(offset, offset + limit - 1);
 
   if (error) {
     throw new Error(`Failed to fetch posts: ${error.message}`);
   }
 
-  return data as Post[];
+  // 각 포스트의 태그 정보를 가져옵니다
+  const postsWithTags = await Promise.all(
+    (posts || []).map(async (post) => {
+      const { data: postTags } = await supabase
+        .from('post-tag')
+        .select('tag(id, name)')
+        .eq('post_id', post.id);
+
+      const tags = postTags
+        ?.map((pt: any) => pt.tag)
+        .filter((tag): tag is Tag => tag != null);
+
+      return {
+        ...post,
+        tags,
+      };
+    })
+  );
+
+  return postsWithTags as Post[];
 }
 
 export async function getTags(type: PostType): Promise<Tag[]> {
